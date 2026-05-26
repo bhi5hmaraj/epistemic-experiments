@@ -1,0 +1,237 @@
+media:
+  input: public/images
+  output: /images
+  rename: safe
+  extensions: [png, jpg, jpeg, webp, svg]
+
+content:
+  - name: events
+    label: Events
+    type: collection
+    path: src/content/events
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{fields.slug}.md"
+    view:
+      primary: title
+      fields: [status, date, publish_on_site]
+      sort: [date, status]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: slug
+        label: Slug
+        type: string
+        required: true
+        pattern: "^[a-z0-9-]+$"
+      - name: status
+        label: Status
+        type: select
+        required: true
+        default: draft
+        options:
+          values: [draft, review, ready_for_luma, live, completed, archived, cancelled]
+      - name: subtitle
+        label: Subtitle
+        type: string
+      - name: summary
+        label: Summary
+        type: text
+        required: true
+      - name: description
+        label: Description
+        type: text
+      - name: date
+        label: Date
+        type: date
+        required: true
+      - name: time
+        label: Time
+        type: string
+        description: "Include timezone, for example 16:00 IST."
+      - name: timezone
+        label: Timezone
+        type: string
+        default: Asia/Kolkata
+      - name: duration_minutes
+        label: Duration in minutes
+        type: number
+      - name: format
+        label: Format
+        type: string
+      - name: location_type
+        label: Location type
+        type: select
+        options:
+          values: [online, in_person, hybrid]
+      - name: location_note
+        label: Public location note
+        type: string
+      - name: host_display_name
+        label: Host display name
+        type: string
+      - name: host_public
+        label: Show host publicly
+        type: boolean
+        default: true
+      - name: topics
+        label: Topics
+        type: string
+        list: true
+      - name: cover_image
+        label: Cover image
+        type: image
+      - name: luma_url
+        label: Luma registration URL
+        type: string
+        description: "A live event will not appear publicly without this URL."
+      - name: publish_on_site
+        label: Publish on site
+        type: boolean
+        default: false
+      - name: privacy_level
+        label: Privacy level
+        type: select
+        default: normal
+        options:
+          values: [normal, sensitive]
+      - name: recording_policy
+        label: Recording policy
+        type: select
+        default: unknown
+        options:
+          values: [recorded, not_recorded, unknown]
+      - name: body
+        label: Internal notes or public detail
+        type: rich-text
+
+  - name: logs
+    label: Experiment Logs
+    type: collection
+    path: src/content/logs
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{fields.slug}.md"
+    view:
+      primary: title
+      fields: [status, date, privacy_level]
+      sort: [date, status]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: slug
+        label: Slug
+        type: string
+        required: true
+        pattern: "^[a-z0-9-]+$"
+      - name: subtitle
+        label: Subtitle
+        type: string
+      - name: date
+        label: Date
+        type: date
+        required: true
+      - name: status
+        label: Status
+        type: select
+        default: draft
+        required: true
+        options:
+          values: [draft, review, published, archived]
+      - name: related_event
+        label: Related event slug
+        type: string
+      - name: author
+        label: Author
+        type: string
+        default: EE Admin Team
+      - name: topics
+        label: Topics
+        type: string
+        list: true
+      - name: cover_image
+        label: Cover image
+        type: image
+      - name: privacy_level
+        label: Privacy level
+        type: select
+        default: normal
+        options:
+          values: [normal, sensitive]
+      - name: body
+        label: Log body
+        type: rich-text
+        required: true
+
+  - name: resources
+    label: Resources
+    type: collection
+    path: src/content/resources
+    format: yaml-frontmatter
+    filename: "{fields.slug}.md"
+    view:
+      primary: title
+      fields: [status, source_type]
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: slug
+        label: Slug
+        type: string
+        required: true
+        pattern: "^[a-z0-9-]+$"
+      - name: status
+        label: Status
+        type: select
+        default: draft
+        options:
+          values: [draft, published, archived]
+      - name: url
+        label: Public URL
+        type: string
+      - name: source_type
+        label: Resource type
+        type: string
+      - name: topics
+        label: Topics
+        type: string
+        list: true
+      - name: summary
+        label: Annotation
+        type: text
+        required: true
+      - name: body
+        label: Editorial notes
+        type: rich-text
+
+  - name: pages
+    label: Pages
+    type: collection
+    path: src/content/pages
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: subtitle
+        label: Subtitle
+        type: string
+      - name: description
+        label: Search description
+        type: text
+        required: true
+      - name: body
+        label: Page body
+        type: rich-text
+        required: true
