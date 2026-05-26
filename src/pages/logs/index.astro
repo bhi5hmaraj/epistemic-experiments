@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import LogCard from "../../components/LogCard.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { isPublishedLog, newestFirst } from "../../lib/content";
+
+const logs = (await getCollection("logs")).filter(isPublishedLog).sort(newestFirst);
+---
+
+<BaseLayout title="Experiment Logs">
+  <div class="page">
+    <p class="eyebrow">Public memory</p>
+    <h1 class="page-title">Experiment logs</h1>
+    <p class="subtitle">
+      Field notes on what we tried, what emerged, and which questions remain.
+      Sensitive sessions are summarized without participant details.
+    </p>
+    {
+      logs.length > 0 ? (
+        <div class="card-grid">
+          {logs.map((log) => <LogCard log={log} />)}
+        </div>
+      ) : (
+        <p class="empty-state">Published experiment logs will appear here.</p>
+      )
+    }
+  </div>
+</BaseLayout>

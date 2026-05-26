@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from "astro:content";
+import TagList from "./TagList.astro";
+import { formatDate } from "../lib/site";
+
+interface Props {
+  event: CollectionEntry<"events">;
+}
+
+const { event } = Astro.props;
+const details = [formatDate(event.data.date), event.data.time, event.data.format]
+  .filter(Boolean)
+  .join(" / ");
+---
+
+<article class="card">
+  <p class="event-meta">{details}</p>
+  <h3>{event.data.title}</h3>
+  <p>{event.data.summary}</p>
+  <TagList topics={event.data.topics} />
+  <div class="card__action">
+    <a class="button-primary" href={event.data.luma_url} target="_blank" rel="noopener">
+      RSVP on Luma
+    </a>
+  </div>
+</article>

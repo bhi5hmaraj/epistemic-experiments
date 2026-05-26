@@ -1,0 +1,74 @@
+---
+import "../styles/global.css";
+import { site, withBase } from "../lib/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+  currentPath?: string;
+}
+
+const {
+  title,
+  description = site.description,
+  currentPath = Astro.url.pathname,
+} = Astro.props;
+const pageTitle = title ? `${title} | ${site.name}` : site.name;
+const links = [
+  { label: "Events", path: "/events/" },
+  { label: "Experiment Logs", path: "/logs/" },
+  { label: "Resources", path: "/resources/" },
+  { label: "About", path: "/about/" },
+  { label: "Join", path: "/join/" },
+];
+
+function isCurrent(path: string) {
+  const prefixedPath = withBase(path);
+  return currentPath === prefixedPath || currentPath === prefixedPath.slice(0, -1);
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#fbf8ef" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-title" href={withBase("/")}>Epistemic Experiments</a>
+        <nav class="site-nav" aria-label="Primary">
+          {links.map((link) => (
+            <a
+              href={withBase(link.path)}
+              aria-current={isCurrent(link.path) ? "page" : undefined}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </header>
+    <main id="main-content">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span>Epistemic Experiments</span>
+        <span>Thinking together, carefully and in public where appropriate.</span>
+      </div>
+    </footer>
+  </body>
+</html>

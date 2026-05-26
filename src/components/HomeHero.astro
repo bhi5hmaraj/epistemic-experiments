@@ -1,0 +1,24 @@
+---
+import { withBase } from "../lib/site";
+---
+
+<section class="home-hero">
+  <div>
+    <p class="eyebrow">A field guide for shared inquiry</p>
+    <h1>Epistemic<br />Experiments</h1>
+    <p class="home-hero__subtitle">
+      A small community for testing better ways to think, talk, and learn together.
+    </p>
+    <div class="actions">
+      <a class="button-primary" href={withBase("/events/")}>Upcoming events</a>
+      <a class="button-secondary" href={withBase("/logs/")}>Experiment logs</a>
+    </div>
+  </div>
+  <div class="home-hero__visual">
+    <img
+      class="hero-image"
+      src={withBase("/images/community-map.webp")}
+      alt="A watercolor archipelago overlaid with routes and observation points."
+    />
+  </div>
+</section>

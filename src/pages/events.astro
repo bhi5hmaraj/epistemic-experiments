@@ -1,0 +1,44 @@
+---
+import { getCollection } from "astro:content";
+import EventCard from "../components/EventCard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { isPublicEvent, newestFirst } from "../lib/content";
+import { withBase } from "../lib/site";
+
+const events = (await getCollection("events")).filter(isPublicEvent).sort(newestFirst);
+---
+
+<BaseLayout title="Events">
+  <div class="page">
+    <section class="events-intro">
+      <div>
+        <p class="eyebrow">Gatherings and sessions</p>
+        <h1 class="page-title">Upcoming events</h1>
+        <p class="subtitle">
+          Conversations, Q&amp;As, workshops, and small experiments in learning together.
+          Registration is managed through Luma.
+        </p>
+      </div>
+      <img
+        class="page-cover events-image"
+        src={withBase("/images/about-inquiry-landscape.webp")}
+        alt="A watercolor path winding through a quiet landscape marked by observation circles."
+        loading="lazy"
+      />
+    </section>
+    <section class="events-list" aria-label="Public events">
+      {
+        events.length > 0 ? (
+          <div class="card-grid card-grid--two">
+            {events.map((event) => <EventCard event={event} />)}
+          </div>
+        ) : (
+          <div class="empty-state">
+            <p>No public events are open for registration right now.</p>
+            <a href={withBase("/join/")}>Find out how to participate</a>
+          </div>
+        )
+      }
+    </section>
+  </div>
+</BaseLayout>

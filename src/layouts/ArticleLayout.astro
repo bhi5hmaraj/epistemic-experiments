@@ -1,0 +1,49 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import TagList from "../components/TagList.astro";
+import { formatDate, withBase } from "../lib/site";
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  date: string;
+  topics?: string[];
+  coverImage?: string;
+  privacyLevel?: "normal" | "sensitive";
+}
+
+const {
+  title,
+  subtitle,
+  date,
+  topics = [],
+  coverImage,
+  privacyLevel = "normal",
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={subtitle}>
+  <article class="article">
+    <p class="eyebrow">Experiment Log</p>
+    <h1>{title}</h1>
+    {subtitle && <p class="subtitle">{subtitle}</p>}
+    <p class="meta">{formatDate(date)}</p>
+    <TagList topics={topics} />
+    {
+      coverImage && (
+        <img class="article__cover" src={withBase(coverImage)} alt="" />
+      )
+    }
+    {
+      privacyLevel === "sensitive" && (
+        <p class="privacy-note">
+          This log is a high-level summary. Personal questions and participant
+          details are intentionally omitted.
+        </p>
+      )
+    }
+    <div class="article-content">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>

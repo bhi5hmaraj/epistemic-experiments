@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from "astro:content";
+import TagList from "./TagList.astro";
+
+interface Props {
+  resource: CollectionEntry<"resources">;
+}
+
+const { resource } = Astro.props;
+---
+
+<article class="card">
+  {resource.data.source_type && <p class="resource-type">{resource.data.source_type}</p>}
+  <h3>
+    {
+      resource.data.url ? (
+        <a href={resource.data.url} target="_blank" rel="noopener">
+          {resource.data.title}
+        </a>
+      ) : (
+        resource.data.title
+      )
+    }
+  </h3>
+  <p>{resource.data.summary}</p>
+  <TagList topics={resource.data.topics} />
+  {
+    resource.data.url && (
+      <p class="card__action">
+        <a href={resource.data.url} target="_blank" rel="noopener">
+          Visit resource
+        </a>
+      </p>
+    )
+  }
+</article>

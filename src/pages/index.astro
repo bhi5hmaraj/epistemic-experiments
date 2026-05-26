@@ -1,0 +1,97 @@
+---
+import { getCollection } from "astro:content";
+import HomeHero from "../components/HomeHero.astro";
+import EventCard from "../components/EventCard.astro";
+import LogCard from "../components/LogCard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { isPublicEvent, isPublishedLog, newestFirst } from "../lib/content";
+import { withBase } from "../lib/site";
+
+const events = (await getCollection("events"))
+  .filter(isPublicEvent)
+  .sort(newestFirst)
+  .slice(0, 3);
+const logs = (await getCollection("logs"))
+  .filter(isPublishedLog)
+  .sort(newestFirst)
+  .slice(0, 3);
+
+const explorations = [
+  ["AI and judgment", "How tools change what we notice, decide, and trust."],
+  ["Practice and attention", "Meditation and exercises examined without mystique."],
+  ["Disagreement", "Formats that make honest differences easier to explore."],
+  ["Education", "Learning environments that reward curiosity over performance."],
+  ["Community", "Small containers for meaningful conversation and mutual support."],
+  ["Sensemaking", "Ways to turn uncertainty into tractable experiments."],
+];
+---
+
+<BaseLayout>
+  <div class="page">
+    <HomeHero />
+
+    <section class="section" aria-labelledby="events-heading">
+      <div class="section-heading">
+        <h2 id="events-heading">Upcoming events</h2>
+        <a class="section-link" href={withBase("/events/")}>See events</a>
+      </div>
+      {
+        events.length > 0 ? (
+          <div class="card-grid">
+            {events.map((event) => <EventCard event={event} />)}
+          </div>
+        ) : (
+          <div class="empty-state">
+            <p>
+              The next public session is taking shape. Events appear here once
+              registration is live through Luma.
+            </p>
+            <a href={withBase("/join/")}>Hear about the next experiment</a>
+          </div>
+        )
+      }
+    </section>
+
+    <section class="section" aria-labelledby="logs-heading">
+      <div class="section-heading">
+        <h2 id="logs-heading">Latest experiment logs</h2>
+        <a class="section-link" href={withBase("/logs/")}>Browse the archive</a>
+      </div>
+      {
+        logs.length > 0 ? (
+          <div class="card-grid">
+            {logs.map((log) => <LogCard log={log} />)}
+          </div>
+        ) : (
+          <p class="empty-state">Published notes from completed experiments will appear here.</p>
+        )
+      }
+    </section>
+
+    <section class="section" aria-labelledby="explore-heading">
+      <div class="section-heading">
+        <h2 id="explore-heading">What we explore</h2>
+      </div>
+      <div class="explore-grid">
+        {explorations.map(([title, text]) => (
+          <article class="explore-item">
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="cta-panel" aria-label="Join or propose">
+      <div>
+        <h2>Attend or propose an experiment</h2>
+        <p>
+          Come to a public session, or suggest a question and a format worth trying together.
+        </p>
+      </div>
+      <div class="actions">
+        <a class="button-primary" href={withBase("/join/")}>Join in</a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

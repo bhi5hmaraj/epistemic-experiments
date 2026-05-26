@@ -1,0 +1,23 @@
+---
+import type { CollectionEntry } from "astro:content";
+import TagList from "./TagList.astro";
+import { formatDate, withBase } from "../lib/site";
+
+interface Props {
+  log: CollectionEntry<"logs">;
+}
+
+const { log } = Astro.props;
+---
+
+<article class="card">
+  <p class="meta">{formatDate(log.data.date)}</p>
+  <h3>
+    <a href={withBase(`/logs/${log.data.slug}/`)}>{log.data.title}</a>
+  </h3>
+  {log.data.subtitle && <p>{log.data.subtitle}</p>}
+  <TagList topics={log.data.topics} />
+  <p class="card__action">
+    <a href={withBase(`/logs/${log.data.slug}/`)}>Read the log</a>
+  </p>
+</article>

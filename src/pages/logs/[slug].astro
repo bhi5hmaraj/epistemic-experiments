@@ -1,0 +1,32 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
+import { isPublishedLog } from "../../lib/content";
+
+export async function getStaticPaths() {
+  const logs = (await getCollection("logs")).filter(isPublishedLog);
+
+  return logs.map((log) => ({
+    params: { slug: log.data.slug },
+    props: { log },
+  }));
+}
+
+interface Props {
+  log: CollectionEntry<"logs">;
+}
+
+const { log } = Astro.props;
+const { Content } = await render(log);
+---
+
+<ArticleLayout
+  title={log.data.title}
+  subtitle={log.data.subtitle}
+  date={log.data.date}
+  topics={log.data.topics}
+  coverImage={log.data.cover_image}
+  privacyLevel={log.data.privacy_level}
+>
+  <Content />
+</ArticleLayout>

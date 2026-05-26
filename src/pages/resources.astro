@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import ResourceCard from "../components/ResourceCard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const resources = (await getCollection("resources")).filter(
+  (resource) => resource.data.status === "published",
+);
+---
+
+<BaseLayout title="Resources">
+  <div class="page">
+    <p class="eyebrow">Annotations, not a link dump</p>
+    <h1 class="page-title">Resources</h1>
+    <p class="subtitle">
+      Readings, tools, and frameworks that have helped sharpen a question or support an experiment.
+    </p>
+    {
+      resources.length > 0 ? (
+        <div class="card-grid">
+          {resources.map((resource) => <ResourceCard resource={resource} />)}
+        </div>
+      ) : (
+        <p class="empty-state">Annotated resources will appear here as they are published.</p>
+      )
+    }
+  </div>
+</BaseLayout>

@@ -1,0 +1,32 @@
+---
+import { getEntry, render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../lib/site";
+
+const page = await getEntry("pages", "join");
+
+if (!page) {
+  throw new Error("Missing join page content.");
+}
+
+const { Content } = await render(page);
+---
+
+<BaseLayout title={page.data.title} description={page.data.description}>
+  <div class="page illustrated-page">
+    <div>
+      <p class="eyebrow">Participate</p>
+      <h1 class="page-title">{page.data.title}</h1>
+      {page.data.subtitle && <p class="subtitle">{page.data.subtitle}</p>}
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+    <img
+      class="page-cover join-image"
+      src={withBase("/images/experiment-vessel.webp")}
+      alt="A watercolor vessel growing a circuit-like flowering plant."
+      loading="lazy"
+    />
+  </div>
+</BaseLayout>
