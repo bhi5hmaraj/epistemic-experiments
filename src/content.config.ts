@@ -34,6 +34,7 @@ const events = defineCollection({
     cover_image: z.string().optional(),
     luma_url: z.union([z.url(), z.literal("")]).default(""),
     publish_on_site: z.boolean().default(false),
+    comments: z.boolean().default(true),
     privacy_level: z.enum(["normal", "sensitive"]).default("normal"),
     recording_policy: z
       .enum(["recorded", "not_recorded", "unknown"])
@@ -53,6 +54,7 @@ const logs = defineCollection({
     author: z.string().default("EE Admin Team"),
     topics: z.array(z.string()).default([]),
     cover_image: z.string().optional(),
+    comments: z.boolean().default(true),
     privacy_level: z.enum(["normal", "sensitive"]).default("normal"),
   }),
 });
