@@ -40,5 +40,74 @@ const events = (await getCollection("events")).filter(isPublicEvent).sort(newest
         )
       }
     </section>
+
+    <section class="events-past">
+      <h2 class="section-title">Past events</h2>
+      <div class="card-grid">
+        {[
+          {
+            title: "Making Sense of AI Risk — Q&A with TJ",
+            date: "Mar 15, 2026",
+            summary: "Tushita Jha (Oxford FHI, Mimir Center) on why understanding AI risk clearly matters, and how to think about it without losing the thread.",
+            url: "https://luma.com/mqs6meso",
+            image: "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/gallery-images/4p/23e6b8bd-968e-40be-8ba4-7b723aee77b9",
+          },
+          {
+            title: "Making Sense of Vibe Coding",
+            date: "May 17, 2026",
+            summary: "A live demonstration of building software with AI agents — from intention to working code. No coding experience required.",
+            url: "https://luma.com/ienunl3i",
+            image: "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/uploads/hy/1ba4d379-d580-4f9a-8ff3-8e863a051581.png",
+          },
+          {
+            title: "Making Sense of Dating and Romance",
+            date: "May 10, 2026",
+            summary: "An open Q&A on romance and relationships, held experientially rather than theoretically. Facilitated by Chin.",
+            url: "https://luma.com/dxr3oca3",
+            image: "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/uploads/ji/4a80f5cd-f209-4d08-a79e-8f99347b8f6a.png",
+          },
+          {
+            title: "Making Sense of Meditation",
+            date: "Apr 5, 2026",
+            summary: "A Q&A on technique, resistance, discomfort, and what awakening might actually mean — for practitioners at any level.",
+            url: "https://luma.com/4lznr5ch",
+            image: "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/event-covers/hs/595ad68b-b552-402c-9d3b-59cf07742889.png",
+          },
+          {
+            title: "Self-Deception: Why You Can't Think Your Way Out",
+            date: "Jun 7, 2026",
+            summary: "A workshop on the mechanisms of self-deception and what structures you need to build around yourself to catch what you can't catch alone.",
+            url: "https://luma.com/mpddd55b",
+            image: "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/uploads/h7/c2096b2c-58f3-47ba-b2f4-0f511f1658ab.png",
+          },
+          {
+            title: "AI Alignment in Daily Life",
+            date: "Mar 10, 2026",
+            summary: "What does alignment mean when AI is woven into how you think and remember? A discussion on building an exocortex without losing yourself.",
+            url: "https://luma.com/i4xx40qv",
+            image: "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/event-covers/1o/4acc3a31-7596-4463-bab8-d4537d7a280c.png",
+          },
+          {
+            title: "AI Sycophancy Meetup",
+            date: "Aug 9, 2025",
+            summary: "An in-person discussion at IISc on detecting when AI models are being insincere, manipulative, or farming intimacy through flattery.",
+            url: "https://luma.com/z8x1qrgs",
+            image: "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/event-covers/lz/1d4aea2f-5b11-4370-acfe-46e7d2066695.png",
+          },
+        ].map((event) => (
+          <article class="card card--past">
+            <img class="card__cover" src={event.image} alt="" loading="lazy" />
+            {event.date && <p class="card__date">{event.date}</p>}
+            <h3>{event.title}</h3>
+            <p>{event.summary}</p>
+            <div class="card__action">
+              <a class="button-secondary" href={event.url} target="_blank" rel="noopener">
+                View on Luma
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
   </div>
 </BaseLayout>

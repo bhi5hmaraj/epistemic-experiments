@@ -21,6 +21,9 @@ const { Content } = await render(page);
       <div class="prose">
         <Content />
       </div>
+      <button class="button-primary contact-open-btn" onclick="document.getElementById('contact-modal').showModal()">
+        Get in touch
+      </button>
     </div>
     <img
       class="page-cover join-image"

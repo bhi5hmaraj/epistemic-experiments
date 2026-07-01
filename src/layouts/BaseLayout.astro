@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { site, withBase } from "../lib/site";
+import ContactModal from "../components/ContactModal.astro";
 
 interface Props {
   title?: string;
@@ -70,5 +71,6 @@ function isCurrent(path: string) {
         <span>Where maps meet action.</span>
       </div>
     </footer>
+    <ContactModal />
   </body>
 </html>

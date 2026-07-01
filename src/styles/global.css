@@ -557,6 +557,53 @@ h3 {
   max-width: 760px;
 }
 
+.events-past {
+  margin-top: 4rem;
+  max-width: 760px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.card__date {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  opacity: 0.55;
+  margin: 0;
+}
+
+.card--past {
+  opacity: 0.85;
+}
+
+.contact-trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-secondary, #888);
+  font-size: 0.8rem;
+  font-family: inherit;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.contact-trigger:hover {
+  color: var(--text);
+}
+
+.card__cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
 .prose > :first-child {
   margin-top: 0;
 }

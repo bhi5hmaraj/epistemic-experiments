@@ -10,7 +10,6 @@ const { resource } = Astro.props;
 ---
 
 <article class="card">
-  {resource.data.source_type && <p class="resource-type">{resource.data.source_type}</p>}
   <h3>
     {
       resource.data.url ? (
