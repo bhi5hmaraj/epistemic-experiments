@@ -93,6 +93,11 @@ content:
         label: Publish on site
         type: boolean
         default: false
+      - name: comments
+        label: Enable comments
+        type: boolean
+        default: true
+        description: "Loads public Hypothesis comments on non-sensitive public pages."
       - name: privacy_level
         label: Privacy level
         type: select
@@ -160,6 +165,11 @@ content:
       - name: cover_image
         label: Cover image
         type: image
+      - name: comments
+        label: Enable comments
+        type: boolean
+        default: true
+        description: "Loads public Hypothesis comments unless the log is sensitive."
       - name: privacy_level
         label: Privacy level
         type: select

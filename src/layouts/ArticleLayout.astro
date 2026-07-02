@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import HypothesisComments from "../components/HypothesisComments.astro";
 import TagList from "../components/TagList.astro";
 import { formatDate, withBase } from "../lib/site";
 
@@ -10,6 +11,7 @@ interface Props {
   topics?: string[];
   coverImage?: string;
   privacyLevel?: "normal" | "sensitive";
+  comments?: boolean;
 }
 
 const {
@@ -19,7 +21,10 @@ const {
   topics = [],
   coverImage,
   privacyLevel = "normal",
+  comments = false,
 } = Astro.props;
+
+const showComments = comments && privacyLevel !== "sensitive";
 ---
 
 <BaseLayout title={title} description={subtitle}>
@@ -45,5 +50,6 @@ const {
     <div class="article-content">
       <slot />
     </div>
+    {showComments && <HypothesisComments />}
   </article>
 </BaseLayout>
