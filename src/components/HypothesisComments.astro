@@ -28,6 +28,7 @@
   (() => {
     const dialog = document.querySelector("[data-comment-dialog]");
     const helpButton = document.querySelector("[data-comment-help]");
+    const DISMISS_KEY = "comment-help-dismissed";
 
     window.hypothesisConfig = function () {
       return {
@@ -35,6 +36,14 @@
         showHighlights: true,
       };
     };
+
+    function isDismissed() {
+      try {
+        return localStorage.getItem(DISMISS_KEY) === "1";
+      } catch {
+        return false;
+      }
+    }
 
     function showCommentDialog() {
       if (
@@ -52,17 +61,27 @@
       }
     }
 
+    dialog?.addEventListener("close", () => {
+      try {
+        localStorage.setItem(DISMISS_KEY, "1");
+      } catch {
+        /* private browsing; dialog will reappear next visit */
+      }
+    });
+
     helpButton?.addEventListener("click", () => {
       showCommentDialog();
     });
 
-    if (window.__hypothesisLoaded) {
+    if (!isDismissed()) {
       showCommentDialog();
+    }
+
+    if (window.__hypothesisLoaded) {
       return;
     }
 
     window.__hypothesisLoaded = true;
-    showCommentDialog();
 
     const script = document.createElement("script");
     script.src = "https://hypothes.is/embed.js";
