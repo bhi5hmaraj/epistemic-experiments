@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { site, withBase } from "../lib/site";
+import ContactModal from "../components/ContactModal.astro";
 
 interface Props {
   title?: string;
@@ -67,8 +68,9 @@ function isCurrent(path: string) {
     <footer class="site-footer">
       <div class="site-footer__inner">
         <span>Epistemic Experiments</span>
-        <span>Thinking together, carefully and in public where appropriate.</span>
+        <span>Where maps meet action.</span>
       </div>
     </footer>
+    <ContactModal />
   </body>
 </html>
