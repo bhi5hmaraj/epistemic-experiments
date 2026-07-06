@@ -1,0 +1,77 @@
+<button
+  class="comment-help-button button-secondary"
+  type="button"
+  aria-controls="comment-dialog"
+  aria-haspopup="dialog"
+  data-comment-help
+>
+  Comments
+</button>
+
+<dialog
+  id="comment-dialog"
+  class="comment-dialog"
+  aria-labelledby="comment-dialog-title"
+  data-comment-dialog
+>
+  <h2 id="comment-dialog-title">Add comments</h2>
+  <p>
+    Select text on desktop, or long-press text on mobile, then choose Annotate
+    in Hypothesis. Sign in if prompted.
+  </p>
+  <form method="dialog">
+    <button class="button-secondary" type="submit">Got it</button>
+  </form>
+</dialog>
+
+<script is:inline>
+  (() => {
+    const dialog = document.querySelector("[data-comment-dialog]");
+    const helpButton = document.querySelector("[data-comment-help]");
+
+    window.hypothesisConfig = function () {
+      return {
+        openSidebar: false,
+        showHighlights: true,
+      };
+    };
+
+    function showCommentDialog() {
+      if (
+        typeof HTMLDialogElement === "undefined" ||
+        !(dialog instanceof HTMLDialogElement) ||
+        dialog.open
+      ) {
+        return;
+      }
+
+      try {
+        dialog.showModal();
+      } catch {
+        dialog.setAttribute("open", "");
+      }
+    }
+
+    helpButton?.addEventListener("click", () => {
+      showCommentDialog();
+    });
+
+    if (window.__hypothesisLoaded) {
+      showCommentDialog();
+      return;
+    }
+
+    window.__hypothesisLoaded = true;
+    showCommentDialog();
+
+    const script = document.createElement("script");
+    script.src = "https://hypothes.is/embed.js";
+    script.async = true;
+    script.addEventListener("error", () => {
+      window.__hypothesisLoaded = false;
+      console.warn("Hypothesis comments could not be loaded.");
+    });
+
+    document.body.appendChild(script);
+  })();
+</script>

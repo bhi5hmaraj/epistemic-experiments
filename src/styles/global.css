@@ -250,7 +250,20 @@ h3 {
 
 .button-primary:focus-visible,
 .button-secondary:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
   box-shadow: 0 0 0 2px var(--paper);
+}
+
+button.button-primary,
+button.button-secondary {
+  cursor: pointer;
+}
+
+button.button-primary:disabled,
+button.button-secondary:disabled {
+  cursor: default;
+  opacity: 0.72;
 }
 
 .button-primary {
@@ -517,6 +530,57 @@ h3 {
   color: var(--ink-soft);
   font-family: var(--sans);
   font-size: 0.88rem;
+}
+
+.comment-help-button {
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 4;
+  box-shadow: 0 10px 30px rgb(52 47 39 / 14%);
+}
+
+.comment-dialog {
+  width: min(calc(100vw - 2rem), 28rem);
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  padding: 1.2rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  box-shadow: 0 20px 70px rgb(52 47 39 / 20%);
+}
+
+.comment-dialog::backdrop {
+  background: rgb(37 48 68 / 22%);
+}
+
+.comment-dialog h2 {
+  margin: 0 0 0.55rem;
+  font-family: var(--sans);
+  font-size: 1.12rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.comment-dialog p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.96rem;
+  line-height: 1.45;
+}
+
+.comment-dialog form {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  .comment-help-button {
+    left: 0.75rem;
+    bottom: 0.75rem;
+  }
 }
 
 .illustrated-page {
