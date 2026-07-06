@@ -42,4 +42,3 @@ next-env.d.ts
 
 # Original local image-generation sources; optimized site copies live in public/images
 /assets_gen/
-src/content/logs/2026-06-28-reflections-from-kodai.md
