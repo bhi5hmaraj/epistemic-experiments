@@ -536,12 +536,27 @@ button.button-secondary:disabled {
   font-size: 0.88rem;
 }
 
-.comment-help-button {
-  position: fixed;
-  left: 1rem;
-  bottom: 1rem;
-  z-index: 4;
-  box-shadow: 0 10px 30px rgb(52 47 39 / 14%);
+.comments-panel {
+  max-width: 690px;
+  margin-top: 3.2rem;
+  padding: 1.35rem 1.45rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgb(246 240 228 / 42%);
+}
+
+.comments-panel h2 {
+  margin: 0 0 0.4rem;
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.comments-panel p {
+  margin: 0 0 1rem;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  line-height: 1.5;
 }
 
 .comment-dialog {
@@ -578,13 +593,6 @@ button.button-secondary:disabled {
   display: flex;
   justify-content: flex-end;
   margin-top: 1rem;
-}
-
-@media (max-width: 600px) {
-  .comment-help-button {
-    left: 0.75rem;
-    bottom: 0.75rem;
-  }
 }
 
 .illustrated-page {
@@ -637,31 +645,12 @@ button.button-secondary:disabled {
 }
 
 .card__date {
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  opacity: 0.55;
   margin: 0;
-}
-
-.card--past {
-  opacity: 0.85;
-}
-
-.contact-trigger {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--text-secondary, #888);
-  font-size: 0.8rem;
-  font-family: inherit;
-  padding: 0;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.contact-trigger:hover {
-  color: var(--text);
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
 }
 
 .card__cover {

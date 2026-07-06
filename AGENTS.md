@@ -93,6 +93,12 @@ Use the established light-first warm-paper palette in
 | `/images/experiment-vessel.webp` | Join page |
 | `/images/about-inquiry-landscape.webp` | Events page |
 | `/images/hero-map-territory.webp` | Starter experiment log cover |
+| `/images/og-default.jpg` | Default social share card (1200×630) |
+| `/favicon.svg`, `/favicon.ico`, `/icon-*.png`, `/apple-touch-icon.png` | Site icons (dotted route + observation point mark) |
+
+The canonical production URL is `https://www.epistemic-experiments.org`
+(configured as the `site` fallback in `astro.config.mjs`; `SITE_URL` env
+overrides it). Social/SEO tags live in `src/components/Seo.astro`.
 
 ## UI And Accessibility Requirements
 
@@ -174,6 +180,9 @@ Privacy is a product requirement, not only a content preference.
   `docs/main.jsonl`.
 - Do not publish participant names, phone numbers, group links, raw Google Meet
   links, private Luma/admin links, WhatsApp/Discord invites, or personal disclosures.
+- Exception: the official community Discord invite
+  (`https://discord.gg/nKDVuVTrC`) is approved for public display (used in the
+  Kodai log and the contact modal). All other invites remain private.
 - If a proposed public summary might identify a participant, leave it out pending review.
 
 ## Development And Deployment
