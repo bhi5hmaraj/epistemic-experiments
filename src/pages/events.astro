@@ -98,7 +98,9 @@ const showComments = events.every(
             url: "https://luma.com/z8x1qrgs",
             image: "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/event-covers/lz/1d4aea2f-5b11-4370-acfe-46e7d2066695.png",
           },
-        ].map((event) => (
+        ]
+          .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+          .map((event) => (
           <article class="card card--past">
             <img class="card__cover" src={event.image} alt="" loading="lazy" />
             {event.date && <p class="card__date">{event.date}</p>}
