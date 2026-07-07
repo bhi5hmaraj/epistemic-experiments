@@ -1,15 +1,11 @@
 ---
 import { getCollection } from "astro:content";
 import EventCard from "../components/EventCard.astro";
-import HypothesisComments from "../components/HypothesisComments.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { isPublicEvent, newestFirst } from "../lib/content";
 import { withBase } from "../lib/site";
 
 const events = (await getCollection("events")).filter(isPublicEvent).sort(newestFirst);
-const showComments = events.every(
-  (event) => event.data.comments && event.data.privacy_level !== "sensitive",
-);
 ---
 
 <BaseLayout title="Events">
@@ -44,6 +40,5 @@ const showComments = events.every(
         )
       }
     </section>
-    {showComments && <HypothesisComments />}
   </div>
 </BaseLayout>
