@@ -99,12 +99,56 @@ p {
   align-items: center;
   min-height: 44px;
   color: var(--ink);
-  font-family: var(--sans);
-  font-size: 0.96rem;
-  font-weight: 700;
-  letter-spacing: 0.115em;
   text-decoration: none;
-  text-transform: uppercase;
+}
+
+.brand-logo {
+  display: inline-flex;
+  gap: 0.58rem;
+  align-items: center;
+  color: var(--ink);
+}
+
+.brand-logo__mark {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  overflow: visible;
+}
+
+.brand-logo__contour {
+  fill: var(--paper-soft);
+  stroke: var(--ink-soft);
+  stroke-width: 2.4;
+}
+
+.brand-logo__inquiry {
+  fill: none;
+  stroke: var(--blue);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3.4;
+}
+
+.brand-logo__observation {
+  fill: var(--terracotta);
+}
+
+.brand-logo__observation-core {
+  fill: var(--paper);
+}
+
+.brand-logo__wordmark {
+  display: grid;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 0.88;
+}
+
+.site-title:hover .brand-logo__inquiry {
+  stroke: var(--link);
 }
 
 .site-nav {
@@ -682,6 +726,20 @@ button.button-secondary:disabled {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
+  align-items: center;
+}
+
+.site-footer__brand .brand-logo {
+  gap: 0.4rem;
+}
+
+.site-footer__brand .brand-logo__mark {
+  width: 30px;
+  height: 30px;
+}
+
+.site-footer__brand .brand-logo__wordmark {
+  font-size: 0.86rem;
 }
 
 @media (max-width: 840px) {
@@ -734,7 +792,7 @@ button.button-secondary:disabled {
   }
 
   .site-title {
-    display: block;
+    display: inline-flex;
     margin-bottom: 0.7rem;
   }
 
