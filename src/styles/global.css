@@ -617,7 +617,6 @@ button.button-secondary:disabled {
   grid-template-columns: minmax(300px, 1fr) 290px;
   gap: clamp(2rem, 6vw, 5rem);
   align-items: start;
-  max-width: 880px;
 }
 
 .events-image {
@@ -630,18 +629,17 @@ button.button-secondary:disabled {
 
 .events-list {
   margin-top: 3rem;
-  max-width: 760px;
 }
 
 .events-past {
   margin-top: 4rem;
-  max-width: 760px;
 }
 
 .section-title {
-  font-size: 2rem;
-  font-weight: 700;
   margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: -0.025em;
 }
 
 .card__date {
@@ -726,9 +724,13 @@ button.button-secondary:disabled {
   }
 
   .site-header__inner,
-  .cta-panel,
-  .site-footer__inner {
+  .cta-panel {
     display: block;
+  }
+
+  .site-footer__inner {
+    flex-direction: column;
+    gap: 0.15rem;
   }
 
   .site-title {
