@@ -96,6 +96,7 @@ p {
 
 .site-title {
   display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
   min-height: 44px;
   color: var(--ink);
@@ -104,38 +105,16 @@ p {
 
 .brand-logo {
   display: inline-flex;
-  gap: 0.58rem;
+  gap: 0.64rem;
   align-items: center;
   color: var(--ink);
 }
 
 .brand-logo__mark {
   flex: 0 0 auto;
-  width: 42px;
-  height: 42px;
-  overflow: visible;
-}
-
-.brand-logo__contour {
-  fill: var(--paper-soft);
-  stroke: var(--ink-soft);
-  stroke-width: 2.4;
-}
-
-.brand-logo__inquiry {
-  fill: none;
-  stroke: var(--blue);
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 3.4;
-}
-
-.brand-logo__observation {
-  fill: var(--terracotta);
-}
-
-.brand-logo__observation-core {
-  fill: var(--paper);
+  display: block;
+  width: 64px;
+  height: auto;
 }
 
 .brand-logo__wordmark {
@@ -145,10 +124,6 @@ p {
   font-weight: 600;
   letter-spacing: -0.025em;
   line-height: 0.88;
-}
-
-.site-title:hover .brand-logo__inquiry {
-  stroke: var(--link);
 }
 
 .site-nav {
@@ -730,12 +705,11 @@ button.button-secondary:disabled {
 }
 
 .site-footer__brand .brand-logo {
-  gap: 0.4rem;
+  gap: 0.45rem;
 }
 
 .site-footer__brand .brand-logo__mark {
-  width: 30px;
-  height: 30px;
+  width: 45px;
 }
 
 .site-footer__brand .brand-logo__wordmark {

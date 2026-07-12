@@ -4,10 +4,21 @@ import { readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
-const source = await readFile(new URL("../public/favicon.svg", import.meta.url));
+const mark = await readFile(new URL("../public/images/logo-mark.webp", import.meta.url));
+const faviconSource = await readFile(new URL("../public/favicon.svg", import.meta.url));
 
 async function renderPng(size, path) {
-  return sharp(source).resize(size, size).png().toFile(fileURLToPath(new URL(path, import.meta.url)));
+  const logo = await sharp(mark)
+    .resize({ width: Math.round(size * 0.88), height: Math.round(size * 0.68), fit: "inside" })
+    .png()
+    .toBuffer();
+
+  return sharp({
+    create: { width: size, height: size, channels: 4, background: "#fbf8ef" },
+  })
+    .composite([{ input: logo, gravity: "center" }])
+    .png({ palette: true, colours: 64, compressionLevel: 9 })
+    .toFile(fileURLToPath(new URL(path, import.meta.url)));
 }
 
 await Promise.all([
@@ -16,7 +27,7 @@ await Promise.all([
   renderPng(180, "../public/apple-touch-icon.png"),
 ]);
 
-const favicon = await sharp(source).resize(32, 32).png().toBuffer();
+const favicon = await sharp(faviconSource).resize(32, 32).png().toBuffer();
 const header = Buffer.alloc(22);
 header.writeUInt16LE(0, 0);
 header.writeUInt16LE(1, 2);
