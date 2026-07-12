@@ -2,17 +2,31 @@
 import "../styles/global.css";
 import { site, withBase } from "../lib/site";
 import ContactModal from "../components/ContactModal.astro";
+import BrandLogo from "../components/BrandLogo.astro";
+import Seo from "../components/Seo.astro";
 
 interface Props {
   title?: string;
   description?: string;
   currentPath?: string;
+  image?: string;
+  imageAlt?: string;
+  type?: "website" | "article";
+  publishedDate?: string;
+  author?: string;
+  noindex?: boolean;
 }
 
 const {
   title,
   description = site.description,
   currentPath = Astro.url.pathname,
+  image,
+  imageAlt,
+  type,
+  publishedDate,
+  author,
+  noindex,
 } = Astro.props;
 const pageTitle = title ? `${title} | ${site.name}` : site.name;
 const links = [
@@ -38,6 +52,27 @@ function isCurrent(path: string) {
     <meta name="theme-color" content="#fbf8ef" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    <Seo
+      title={pageTitle}
+      description={description}
+      image={image}
+      imageAlt={imageAlt}
+      type={type}
+      publishedDate={publishedDate}
+      author={author}
+      noindex={noindex}
+    />
+    <link rel="icon" href={withBase("/favicon.ico")} sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
+    <link rel="apple-touch-icon" href={withBase("/apple-touch-icon.png")} />
+    <link rel="manifest" href={withBase("/site.webmanifest")} />
+    <link rel="sitemap" href={withBase("/sitemap-index.xml")} />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={`${site.name} — Experiment Logs`}
+      href={withBase("/rss.xml")}
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <link
@@ -49,7 +84,9 @@ function isCurrent(path: string) {
     <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
       <div class="site-header__inner">
-        <a class="site-title" href={withBase("/")}>Epistemic Experiments</a>
+        <a class="site-title" href={withBase("/")} aria-label="Epistemic Experiments home">
+          <BrandLogo />
+        </a>
         <nav class="site-nav" aria-label="Primary">
           {links.map((link) => (
             <a
@@ -67,7 +104,7 @@ function isCurrent(path: string) {
     </main>
     <footer class="site-footer">
       <div class="site-footer__inner">
-        <span>Epistemic Experiments</span>
+        <span class="site-footer__brand"><BrandLogo /></span>
         <span>Where maps meet action.</span>
       </div>
     </footer>

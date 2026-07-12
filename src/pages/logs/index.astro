@@ -7,7 +7,10 @@ import { isPublishedLog, newestFirst } from "../../lib/content";
 const logs = (await getCollection("logs")).filter(isPublishedLog).sort(newestFirst);
 ---
 
-<BaseLayout title="Experiment Logs">
+<BaseLayout
+  title="Experiment Logs"
+  description="Field notes on what we tried, what emerged, and which questions remain."
+>
   <div class="page">
     <p class="eyebrow">Public memory</p>
     <h1 class="page-title">Experiment logs</h1>

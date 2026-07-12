@@ -42,3 +42,9 @@ next-env.d.ts
 
 # Original local image-generation sources; optimized site copies live in public/images
 /assets_gen/
+
+# Generated social-share preview report (npm run preview:social)
+.social-preview.html
+
+# Playwright MCP session artifacts
+.playwright-mcp/
