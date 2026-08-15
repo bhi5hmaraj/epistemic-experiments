@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../lib/site";
+---
+
+<BaseLayout title="Page not found" noindex={true}>
+  <div class="page page-narrow">
+    <p class="eyebrow">Off the map</p>
+    <h1 class="page-title">This page isn't charted</h1>
+    <p class="subtitle">
+      The territory changed, or the address never existed. Either way, there is
+      nothing to observe here.
+    </p>
+    <div class="prose">
+      <p>Some routes back:</p>
+      <ul>
+        <li><a href={withBase("/")}>Home</a></li>
+        <li><a href={withBase("/events/")}>Upcoming events</a></li>
+        <li><a href={withBase("/logs/")}>Experiment logs</a></li>
+      </ul>
+    </div>
+  </div>
+</BaseLayout>

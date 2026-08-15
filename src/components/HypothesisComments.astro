@@ -1,12 +1,13 @@
-<button
-  class="comment-help-button button-secondary"
-  type="button"
-  aria-controls="comment-dialog"
-  aria-haspopup="dialog"
-  data-comment-help
->
-  Comments
-</button>
+<section class="comments-panel" aria-labelledby="comments-title">
+  <h2 id="comments-title">Comments</h2>
+  <p>
+    This page supports public annotation through Hypothesis. Turn it on, select
+    any text, and choose Annotate. Sign in if prompted.
+  </p>
+  <button class="button-secondary" type="button" data-comments-enable>
+    Turn on comments
+  </button>
+</section>
 
 <dialog
   id="comment-dialog"
@@ -14,7 +15,7 @@
   aria-labelledby="comment-dialog-title"
   data-comment-dialog
 >
-  <h2 id="comment-dialog-title">Add comments</h2>
+  <h2 id="comment-dialog-title">Comments are on</h2>
   <p>
     Select text on desktop, or long-press text on mobile, then choose Annotate
     in Hypothesis. Sign in if prompted.
@@ -26,9 +27,9 @@
 
 <script is:inline>
   (() => {
+    const ENABLED_KEY = "hypothesis-enabled";
+    const button = document.querySelector("[data-comments-enable]");
     const dialog = document.querySelector("[data-comment-dialog]");
-    const helpButton = document.querySelector("[data-comment-help]");
-    const DISMISS_KEY = "comment-help-dismissed";
 
     window.hypothesisConfig = function () {
       return {
@@ -37,12 +38,29 @@
       };
     };
 
-    function isDismissed() {
-      try {
-        return localStorage.getItem(DISMISS_KEY) === "1";
-      } catch {
-        return false;
+    function markEnabled() {
+      if (button instanceof HTMLButtonElement) {
+        button.disabled = true;
+        button.textContent = "Comments are on — select text to annotate";
       }
+    }
+
+    function loadHypothesis() {
+      if (window.__hypothesisLoaded) {
+        return;
+      }
+
+      window.__hypothesisLoaded = true;
+
+      const script = document.createElement("script");
+      script.src = "https://hypothes.is/embed.js";
+      script.async = true;
+      script.addEventListener("error", () => {
+        window.__hypothesisLoaded = false;
+        console.warn("Hypothesis comments could not be loaded.");
+      });
+
+      document.body.appendChild(script);
     }
 
     function showCommentDialog() {
@@ -61,36 +79,28 @@
       }
     }
 
-    dialog?.addEventListener("close", () => {
+    let enabled = false;
+    try {
+      enabled = sessionStorage.getItem(ENABLED_KEY) === "1";
+    } catch {
+      /* private browsing; comments stay opt-in per page */
+    }
+
+    if (enabled) {
+      loadHypothesis();
+      markEnabled();
+    }
+
+    button?.addEventListener("click", () => {
       try {
-        localStorage.setItem(DISMISS_KEY, "1");
+        sessionStorage.setItem(ENABLED_KEY, "1");
       } catch {
-        /* private browsing; dialog will reappear next visit */
+        /* private browsing; comments stay opt-in per page */
       }
-    });
 
-    helpButton?.addEventListener("click", () => {
+      loadHypothesis();
+      markEnabled();
       showCommentDialog();
     });
-
-    if (!isDismissed()) {
-      showCommentDialog();
-    }
-
-    if (window.__hypothesisLoaded) {
-      return;
-    }
-
-    window.__hypothesisLoaded = true;
-
-    const script = document.createElement("script");
-    script.src = "https://hypothes.is/embed.js";
-    script.async = true;
-    script.addEventListener("error", () => {
-      window.__hypothesisLoaded = false;
-      console.warn("Hypothesis comments could not be loaded.");
-    });
-
-    document.body.appendChild(script);
   })();
 </script>

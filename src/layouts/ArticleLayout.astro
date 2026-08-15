@@ -12,6 +12,7 @@ interface Props {
   coverImage?: string;
   privacyLevel?: "normal" | "sensitive";
   comments?: boolean;
+  author?: string;
 }
 
 const {
@@ -22,12 +23,20 @@ const {
   coverImage,
   privacyLevel = "normal",
   comments = false,
+  author,
 } = Astro.props;
 
 const showComments = comments && privacyLevel !== "sensitive";
 ---
 
-<BaseLayout title={title} description={subtitle}>
+<BaseLayout
+  title={title}
+  description={subtitle}
+  type="article"
+  publishedDate={date}
+  image={coverImage}
+  author={author}
+>
   <article class="article">
     <p class="eyebrow">Experiment Log</p>
     <h1>{title}</h1>

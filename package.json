@@ -4,12 +4,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "brand:assets": "node scripts/generate-brand-assets.mjs",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "preview:social": "node scripts/social-preview.mjs",
     "check": "astro check"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.3",
     "astro": "^6.0.0"
   },
   "devDependencies": {
