@@ -88,7 +88,7 @@ const pastEvents = [
     <section class="events-list" aria-label="Public events">
       {
         events.length > 0 ? (
-          <div class="card-grid card-grid--two">
+          <div class="events-grid">
             {events.map((event) => <EventCard event={event} />)}
           </div>
         ) : (

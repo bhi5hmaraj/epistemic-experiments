@@ -23,6 +23,8 @@ const events = defineCollection({
     description: z.string().optional(),
     date,
     time: z.string().optional(),
+    start_at: z.iso.datetime({ offset: true }).optional(),
+    end_at: z.iso.datetime({ offset: true }).optional(),
     timezone: z.string().default("Asia/Kolkata"),
     duration_minutes: z.number().int().positive().optional(),
     format: z.string().optional(),

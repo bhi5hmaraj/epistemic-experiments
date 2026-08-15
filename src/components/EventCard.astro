@@ -1,26 +1,181 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import TagList from "./TagList.astro";
-import { formatDate } from "../lib/site";
+import { formatDate, withBase } from "../lib/site";
 
 interface Props {
   event: CollectionEntry<"events">;
 }
 
 const { event } = Astro.props;
-const details = [formatDate(event.data.date), event.data.time, event.data.format]
+const { start_at: startAt, end_at: endAt, timezone } = event.data;
+const hasExactSchedule = Boolean(startAt && endAt);
+
+const eventDate = hasExactSchedule
+  ? new Intl.DateTimeFormat("en-IN", {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      timeZone: timezone,
+    }).format(new Date(startAt!))
+  : formatDate(event.data.date);
+
+const formatClock = (date: Date) =>
+  new Intl.DateTimeFormat("en-IN", {
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+    timeZone: timezone,
+  })
+    .format(date)
+    .replace(/\b(am|pm)\b/gi, (period) => period.toUpperCase());
+
+const timeZoneName = startAt
+  ? new Intl.DateTimeFormat("en-IN", {
+      timeZone: timezone,
+      timeZoneName: "short",
+    })
+      .formatToParts(new Date(startAt))
+      .find((part) => part.type === "timeZoneName")?.value
+  : undefined;
+
+const eventStartTime = startAt ? formatClock(new Date(startAt)) : undefined;
+const eventEndTime = endAt ? formatClock(new Date(endAt)) : undefined;
+
+const locationLabels = {
+  online: "Online",
+  in_person: "In person",
+  hybrid: "Hybrid",
+};
+const eventContext = [
+  event.data.location_type ? locationLabels[event.data.location_type] : undefined,
+  event.data.duration_minutes ? `${event.data.duration_minutes} minutes` : undefined,
+  event.data.format,
+]
   .filter(Boolean)
-  .join(" / ");
+  .join(" · ");
 ---
 
-<article class="card">
-  <p class="event-meta">{details}</p>
-  <h3>{event.data.title}</h3>
-  <p>{event.data.summary}</p>
-  <TagList topics={event.data.topics} />
-  <div class="card__action">
-    <a class="button-primary" href={event.data.luma_url} target="_blank" rel="noopener">
-      RSVP on Luma
-    </a>
+<article class="card event-card">
+  {
+    event.data.cover_image && (
+      <img
+        class="event-card__cover"
+        src={withBase(event.data.cover_image)}
+        alt=""
+        width="1200"
+        height="1200"
+        loading="eager"
+        decoding="async"
+      />
+    )
+  }
+  <div class="event-card__content">
+    <div class="event-card__schedule">
+      <p class="event-card__when">
+        {
+          hasExactSchedule ? (
+            <>
+              <time datetime={startAt}>{eventDate}</time>
+              <span class="event-card__time-separator"> — </span>
+              <span class="event-card__time-range">
+                <time datetime={startAt}>{eventStartTime}</time>
+                <span>–</span>
+                <time datetime={endAt}>{eventEndTime}</time>
+                {timeZoneName && <span>&nbsp;{timeZoneName}</span>}
+              </span>
+            </>
+          ) : (
+            <>
+              <span>{eventDate}</span>
+              {event.data.time && <span> — {event.data.time}</span>}
+            </>
+          )
+        }
+      </p>
+      {
+        hasExactSchedule && (
+          <p
+            class="event-card__local-time"
+            data-event-local-time
+            data-start-at={startAt}
+            data-end-at={endAt}
+            data-event-timezone={timezone}
+            hidden
+          >
+            <span>Your time</span>
+            <span aria-hidden="true"> — </span>
+            <span data-local-time-value />
+          </p>
+        )
+      }
+      {eventContext && <p class="event-card__context">{eventContext}</p>}
+    </div>
+
+    <header class="event-card__header">
+      <h2>{event.data.title}</h2>
+      {event.data.subtitle && <p class="event-card__subtitle">{event.data.subtitle}</p>}
+    </header>
+
+    <p class="event-card__summary">{event.data.summary}</p>
+    <TagList topics={event.data.topics} />
+    <div class="card__action">
+      <a class="button-primary" href={event.data.luma_url} target="_blank" rel="noopener">
+        RSVP on Luma
+      </a>
+    </div>
   </div>
 </article>
+
+<script>
+  const dateFormatter = (locale: string, timeZone: string) =>
+    new Intl.DateTimeFormat(locale, {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      timeZone,
+    });
+
+  const clockFormatter = (locale: string, timeZone: string) =>
+    new Intl.DateTimeFormat(locale, {
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+      timeZone,
+    });
+
+  document.querySelectorAll<HTMLElement>("[data-event-local-time]").forEach((element) => {
+    const { startAt, endAt, eventTimezone } = element.dataset;
+    const localTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const canonicalEventTimezone = eventTimezone
+      ? new Intl.DateTimeFormat("en", { timeZone: eventTimezone }).resolvedOptions().timeZone
+      : undefined;
+
+    if (
+      !startAt ||
+      !endAt ||
+      !localTimezone ||
+      localTimezone === canonicalEventTimezone
+    )
+      return;
+
+    const start = new Date(startAt);
+    const end = new Date(endAt);
+    const locale = navigator.language || "en";
+    const localDate = dateFormatter(locale, localTimezone).format(start);
+    const startTime = clockFormatter(locale, localTimezone).format(start);
+    const endTime = clockFormatter(locale, localTimezone).format(end);
+    const localZoneName = new Intl.DateTimeFormat(locale, {
+      timeZone: localTimezone,
+      timeZoneName: "short",
+    })
+      .formatToParts(start)
+      .find((part) => part.type === "timeZoneName")?.value;
+    const value = element.querySelector<HTMLElement>("[data-local-time-value]");
+
+    if (!value) return;
+
+    value.textContent = `${localDate} — ${startTime}–${endTime}${localZoneName ? ` ${localZoneName}` : ""}`;
+    element.hidden = false;
+  });
+</script>

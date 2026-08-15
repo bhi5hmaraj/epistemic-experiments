@@ -50,9 +50,17 @@ content:
         type: date
         required: true
       - name: time
-        label: Time
+        label: Fallback time label
         type: string
-        description: "Include timezone, for example 16:00 IST."
+        description: "Used when exact start and end times are not set, for example 16:00 IST."
+      - name: start_at
+        label: Exact start date and time
+        type: string
+        description: "Include the timezone offset, for example 2026-08-16T16:00:00+05:30. This lets visitors see the event in their local timezone."
+      - name: end_at
+        label: Exact end date and time
+        type: string
+        description: "Include the timezone offset, for example 2026-08-16T17:30:00+05:30."
       - name: timezone
         label: Timezone
         type: string
