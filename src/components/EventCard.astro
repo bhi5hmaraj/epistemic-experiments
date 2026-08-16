@@ -56,7 +56,11 @@ const eventContext = [
   .join(" · ");
 ---
 
-<article class="card event-card">
+<article
+  class="card event-card"
+  data-upcoming-event-id={event.data.slug}
+  data-event-end-at={endAt}
+>
   {
     event.data.cover_image && (
       <img
