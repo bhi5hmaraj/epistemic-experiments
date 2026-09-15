@@ -342,6 +342,10 @@ button.button-secondary:disabled {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.card-grid--events {
+  grid-template-columns: 1fr;
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -1131,6 +1135,10 @@ button.button-secondary:disabled {
   .card-grid,
   .explore-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card-grid--events {
+    grid-template-columns: 1fr;
   }
 
   .network-hero__copy,
