@@ -1,0 +1,134 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { withBase } from "../../lib/site";
+
+const newsletterUrl = import.meta.env.PUBLIC_NETWORK_NEWSLETTER_URL;
+const groupRequestUrl = import.meta.env.PUBLIC_NETWORK_WHATSAPP_REQUEST_URL;
+
+---
+
+<BaseLayout
+  title="Indian Network for Sane AI"
+  description="A socio-technical network of researchers, practitioners, and concerned citizens making sense of where AI is going in India."
+>
+  <div class="page network-page">
+    <section class="network-hero" aria-labelledby="network-title">
+      <div class="network-hero__copy">
+        <p class="eyebrow">Special Project</p>
+        <h1 id="network-title" class="page-title">Indian Network for Sane AI</h1>
+        <p class="network-lede">
+          We are a collection of professionals, independent researchers, and concerned
+          citizens coming together to collectively sensemake the direction AI is going.
+        </p>
+        <div class="actions">
+          <a class="button-primary" href="#stay-close">Stay close</a>
+          <a class="button-secondary" href="https://aiinindia.adityaarpitha.com/" target="_blank" rel="noopener noreferrer">
+            Explore the India AI map
+          </a>
+        </div>
+      </div>
+
+      <img
+        class="network-hero__image"
+        src={withBase("/images/sane-ai-network-territory.webp")}
+        alt="Illustrated landscape connecting technical research, civic institutions, and groups of people around a shared center."
+      />
+    </section>
+
+    <section class="network-section network-section--statement" aria-labelledby="why-heading">
+      <div>
+        <p class="eyebrow">Why this exists</p>
+        <h2 id="why-heading">AI is a socio-technical problem.</h2>
+      </div>
+      <div class="network-prose">
+        <p>
+          The question is not only what a model can do. It is also who builds and funds
+          it, which institutions absorb its failures, who gets represented or excluded,
+          and what kinds of agency remain possible around it.
+        </p>
+        <p>
+          India needs spaces where technical and governance perspectives can meet early,
+          without requiring everyone to join the same camp. This network is a container
+          for that work: curious, rigorous, plural, and willing to update.
+        </p>
+      </div>
+    </section>
+
+    <section class="network-section" aria-labelledby="advisors-heading">
+      <div class="section-heading">
+        <h2 id="advisors-heading">Advisors</h2>
+      </div>
+      <div class="network-advisors">
+        <article class="network-advisor">
+          <img
+            class="network-advisor__image"
+            src={withBase("/images/aditya-profile.webp")}
+            alt="Portrait of Aditya."
+          />
+          <p class="eyebrow">Advisor</p>
+          <h3>Aditya</h3>
+          <a class="button-secondary" href="https://www.adityaarpitha.com/" target="_blank" rel="noopener noreferrer">
+            Visit Aditya's site
+          </a>
+        </article>
+        <article class="network-advisor">
+          <img
+            class="network-advisor__image"
+            src={withBase("/images/tushita-jha-profile.webp")}
+            alt="Portrait of Tushita Jha."
+          />
+          <p class="eyebrow">Advisor</p>
+          <h3>Tushita Jha</h3>
+          <a class="button-secondary" href="https://philpeople.org/profiles/tushita-jha" target="_blank" rel="noopener noreferrer">
+            View Tushita's profile
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="network-section network-section--participate" id="stay-close" aria-labelledby="participate-heading">
+      <div class="section-heading">
+        <h2 id="participate-heading">Stay close to the work</h2>
+      </div>
+      <div class="network-participation-grid">
+        <article class="network-participation-card">
+          <p class="eyebrow">Every two months</p>
+          <h3>A short field note</h3>
+          <p>
+            A newsletter for useful signals: new research, institutional movement,
+            questions worth carrying, and what the network is learning.
+          </p>
+          {
+            newsletterUrl ? (
+              <a class="button-secondary" href={newsletterUrl} target="_blank" rel="noopener noreferrer">
+                Sign up for the newsletter
+              </a>
+            ) : (
+              <p class="network-form-note">Newsletter signup will open here when its delivery service is connected.</p>
+            )
+          }
+        </article>
+
+        <article class="network-participation-card">
+          <p class="eyebrow">A living working group</p>
+          <h3>Request access to AI Alignment India</h3>
+          <p>
+            The active WhatsApp group brings together 100+ researchers, from people just
+            getting started to practitioners with published work across technical and
+            governance questions.
+          </p>
+          {
+            groupRequestUrl ? (
+              <a class="button-secondary" href={groupRequestUrl} target="_blank" rel="noopener noreferrer">
+                Request group access
+              </a>
+            ) : (
+              <p class="network-form-note">The request form will appear here once the intake endpoint is connected.</p>
+            )
+          }
+        </article>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>

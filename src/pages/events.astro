@@ -2,12 +2,16 @@
 import { getCollection } from "astro:content";
 import EventCard from "../components/EventCard.astro";
 import HypothesisComments from "../components/HypothesisComments.astro";
+import PastEventCard from "../components/PastEventCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { isPublicEvent, newestFirst } from "../lib/content";
+import { isPastEvent, isUpcomingEvent, newestFirst } from "../lib/content";
 import { withBase } from "../lib/site";
 
-const events = (await getCollection("events")).filter(isPublicEvent).sort(newestFirst);
-const showComments = events.every(
+const allEvents = await getCollection("events");
+const upcomingEvents = allEvents.filter((event) => isUpcomingEvent(event)).sort(newestFirst);
+const pastCollectionEvents = allEvents.filter((event) => isPastEvent(event)).sort(newestFirst);
+const visibleEvents = [...upcomingEvents, ...pastCollectionEvents];
+const showComments = visibleEvents.every(
   (event) => event.data.comments && event.data.privacy_level !== "sensitive",
 );
 
@@ -86,23 +90,19 @@ const pastEvents = [
       />
     </section>
     <section class="events-list" aria-label="Public events">
-      {
-        events.length > 0 ? (
-          <div class="events-grid">
-            {events.map((event) => <EventCard event={event} />)}
-          </div>
-        ) : (
-          <div class="empty-state">
-            <p>No public events are open for registration right now.</p>
-            <a href={withBase("/join/")}>Find out how to participate</a>
-          </div>
-        )
-      }
+      <div class="events-grid" data-upcoming-events hidden={upcomingEvents.length === 0}>
+        {upcomingEvents.map((event) => <EventCard event={event} />)}
+      </div>
+      <div class="empty-state" data-upcoming-empty hidden={upcomingEvents.length > 0}>
+        <p>No public events are open for registration right now.</p>
+        <a href={withBase("/join/")}>Find out how to participate</a>
+      </div>
     </section>
 
     <section class="events-past">
       <h2 class="section-title">Past events</h2>
-      <div class="card-grid">
+      <div class="card-grid" data-past-events>
+        {pastCollectionEvents.map((event) => <PastEventCard event={event} />)}
         {pastEvents.map((event) => (
           <article class="card card--past">
             <img class="card__cover" src={event.image} alt="" loading="lazy" />
@@ -118,6 +118,64 @@ const pastEvents = [
         ))}
       </div>
     </section>
+    {
+      upcomingEvents
+        .filter((event) => Boolean(event.data.end_at))
+        .map((event) => (
+          <template
+            data-past-event-template
+            data-event-id={event.data.slug}
+            data-event-end-at={event.data.end_at}
+          >
+            <PastEventCard event={event} />
+          </template>
+        ))
+    }
     {showComments && <HypothesisComments />}
   </div>
 </BaseLayout>
+
+<script>
+  const updateEventArchive = () => {
+    const pastEvents = document.querySelector<HTMLElement>("[data-past-events]");
+    const upcomingEvents = document.querySelector<HTMLElement>("[data-upcoming-events]");
+    const upcomingEmpty = document.querySelector<HTMLElement>("[data-upcoming-empty]");
+
+    if (!pastEvents || !upcomingEvents || !upcomingEmpty) return;
+
+    document.querySelectorAll<HTMLTemplateElement>("[data-past-event-template]").forEach((template) => {
+      const endAt = template.dataset.eventEndAt;
+      const eventId = template.dataset.eventId;
+      const endTime = endAt ? Date.parse(endAt) : Number.NaN;
+
+      if (!eventId || !Number.isFinite(endTime) || endTime > Date.now()) return;
+
+      document
+        .querySelector<HTMLElement>(`[data-upcoming-event-id="${CSS.escape(eventId)}"]`)
+        ?.remove();
+      pastEvents.prepend(template.content.cloneNode(true));
+      template.remove();
+    });
+
+    const hasUpcomingEvents = Boolean(upcomingEvents.querySelector("[data-upcoming-event-id]"));
+    upcomingEvents.hidden = !hasUpcomingEvents;
+    upcomingEmpty.hidden = hasUpcomingEvents;
+  };
+
+  const scheduleEventArchiveUpdate = () => {
+    const pendingEndTimes = [...document.querySelectorAll<HTMLTemplateElement>("[data-past-event-template]")]
+      .map((template) => Date.parse(template.dataset.eventEndAt || ""))
+      .filter((endTime) => Number.isFinite(endTime) && endTime > Date.now());
+
+    if (pendingEndTimes.length === 0) return;
+
+    const nextEndTime = Math.min(...pendingEndTimes);
+    window.setTimeout(() => {
+      updateEventArchive();
+      scheduleEventArchiveUpdate();
+    }, Math.min(nextEndTime - Date.now() + 50, 2_147_483_647));
+  };
+
+  updateEventArchive();
+  scheduleEventArchiveUpdate();
+</script>

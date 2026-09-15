@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { formatDate, withBase } from "../lib/site";
+
+interface Props {
+  event: CollectionEntry<"events">;
+}
+
+const { event } = Astro.props;
+---
+
+<article class="card card--past">
+  {
+    event.data.cover_image && (
+      <img class="card__cover" src={withBase(event.data.cover_image)} alt="" loading="lazy" />
+    )
+  }
+  <p class="card__date">{formatDate(event.data.date)}</p>
+  <h3>{event.data.title}</h3>
+  {event.data.subtitle && <p class="card__subtitle">{event.data.subtitle}</p>}
+  <p>{event.data.summary}</p>
+  <div class="card__action">
+    <a class="button-secondary" href={event.data.luma_url} target="_blank" rel="noopener">
+      View on Luma
+    </a>
+  </div>
+</article>
