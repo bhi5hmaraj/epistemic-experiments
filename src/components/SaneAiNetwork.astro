@@ -1,7 +1,8 @@
 ---
 import { withBase } from "../lib/site";
 
-const newsletterUrl = import.meta.env.PUBLIC_NETWORK_NEWSLETTER_URL;
+const newsletterUrl =
+  import.meta.env.PUBLIC_NETWORK_NEWSLETTER_URL || "https://forms.gle/E4i4A2Yts1yFvFtR7";
 const groupRequestUrl =
   import.meta.env.PUBLIC_NETWORK_WHATSAPP_REQUEST_URL || "https://forms.gle/uQf5eiyRXmyTJTba6";
 ---
