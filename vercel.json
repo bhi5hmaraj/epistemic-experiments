@@ -1,0 +1,16 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "saneai.epistemic-experiments.org"
+        }
+      ],
+      "destination": "https://www.epistemic-experiments.org/saneai/",
+      "permanent": true
+    }
+  ]
+}
