@@ -799,15 +799,6 @@ button.button-secondary:disabled {
   margin-top: 1.4rem;
 }
 
-.projects-swipe-hint {
-  display: none;
-  margin: -0.7rem 0 0.85rem;
-  color: var(--muted);
-  font-family: var(--sans);
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-}
-
 .network-page {
   padding-top: clamp(2.5rem, 7vw, 5rem);
 }
@@ -1223,28 +1214,6 @@ button.button-secondary:disabled {
   .card-grid--two,
   .explore-grid {
     grid-template-columns: 1fr;
-  }
-
-  .projects-swipe-hint {
-    display: block;
-  }
-
-  .card-grid--two {
-    display: flex;
-    gap: 0.9rem;
-    margin-inline: -0.2rem;
-    padding: 0.2rem 0.2rem 0.85rem;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x mandatory;
-    scrollbar-color: var(--line-strong) transparent;
-    scrollbar-width: thin;
-    touch-action: pan-x;
-  }
-
-  .card-grid--two > .card {
-    flex: 0 0 min(88vw, 25rem);
-    scroll-snap-align: start;
   }
 
   .network-participation-grid {
