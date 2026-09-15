@@ -1,0 +1,44 @@
+---
+interface Props {
+  title: string;
+  summary: string;
+  image?: string;
+  imageAlt?: string;
+  href: string;
+  linkLabel: string;
+  external?: boolean;
+}
+
+const {
+  title,
+  summary,
+  image,
+  imageAlt = "",
+  href,
+  linkLabel,
+  external = false,
+} = Astro.props;
+---
+
+<article class="card project-card">
+  {image && (
+    <img
+      class="card__cover project-card__cover"
+      src={image}
+      alt={imageAlt}
+      loading="lazy"
+    />
+  )}
+  <h3>{title}</h3>
+  <p class="project-card__summary">{summary}</p>
+  <div class="card__action">
+    <a
+      class="button-secondary"
+      href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
+    >
+      {linkLabel}
+    </a>
+  </div>
+</article>

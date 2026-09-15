@@ -1,0 +1,40 @@
+---
+import ProjectCard from "../components/ProjectCard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../lib/site";
+---
+
+<BaseLayout
+  title="Special Projects"
+  description="A small collection of projects that extend Epistemic Experiments into education, AI safety, and shared sensemaking."
+>
+  <div class="page">
+    <section class="projects-intro">
+      <h1 class="page-title">Special Projects</h1>
+    </section>
+
+    <section class="projects-list" aria-label="Special projects">
+      <p class="projects-swipe-hint">Swipe to explore <span aria-hidden="true">→</span></p>
+      <div class="card-grid card-grid--two">
+        <ProjectCard
+          title="Education in an AI-Shaped Future"
+          summary="A four-week online working group exploring how education should respond to a rapidly changing world."
+          image={withBase("/images/education-in-ai-shaped-future.webp")}
+          imageAlt="Editorial artwork for Education in an AI-Shaped Future, with large serif lettering on warm paper."
+          href="https://aieducationfutures.netlify.app"
+          linkLabel="Visit the project"
+          external={true}
+        />
+        <ProjectCard
+          title="Indian Network for Sane AI"
+          summary="We are a collection of professionals, independent researchers, concerned citizens that are coming together to collectively sensemake the direction AI is going."
+          image={withBase("/images/sane-ai-network-territory.webp")}
+          imageAlt="Illustrated landscape connecting technical research, civic institutions, and groups of people around a shared center."
+          href="https://saneai.epistemic-experiments.org/"
+          linkLabel="Visit the network"
+          external={true}
+        />
+      </div>
+    </section>
+  </div>
+</BaseLayout>
