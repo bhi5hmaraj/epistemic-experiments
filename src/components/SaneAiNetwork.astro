@@ -94,15 +94,17 @@ const groupRequestUrl =
           A newsletter for useful signals: new research, institutional movement,
           questions worth carrying, and what the network is learning.
         </p>
-        {
-          newsletterUrl ? (
-            <a class="button-secondary" href={newsletterUrl} target="_blank" rel="noopener noreferrer">
-              Sign up for the newsletter
-            </a>
-          ) : (
-            <p class="network-form-note">Newsletter signup will open here when its delivery service is connected.</p>
-          )
-        }
+        <div class="network-participation-card__action">
+          {
+            newsletterUrl ? (
+              <a class="button-secondary" href={newsletterUrl} target="_blank" rel="noopener noreferrer">
+                Sign up for the newsletter
+              </a>
+            ) : (
+              <p class="network-form-note">Newsletter signup will open here when its delivery service is connected.</p>
+            )
+          }
+        </div>
       </article>
 
       <article class="network-participation-card">
@@ -113,15 +115,17 @@ const groupRequestUrl =
           getting started to practitioners with published work across technical and
           governance questions.
         </p>
-        {
-          groupRequestUrl ? (
-            <a class="button-secondary" href={groupRequestUrl} target="_blank" rel="noopener noreferrer">
-              Request group access
-            </a>
-          ) : (
-            <p class="network-form-note">The request form will appear here once the intake endpoint is connected.</p>
-          )
-        }
+        <div class="network-participation-card__action">
+          {
+            groupRequestUrl ? (
+              <a class="button-secondary" href={groupRequestUrl} target="_blank" rel="noopener noreferrer">
+                Request group access
+              </a>
+            ) : (
+              <p class="network-form-note">The request form will appear here once the intake endpoint is connected.</p>
+            )
+          }
+        </div>
       </article>
     </div>
   </section>

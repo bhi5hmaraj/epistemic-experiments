@@ -1032,13 +1032,17 @@ button.button-secondary:disabled {
   min-height: 100%;
 }
 
-.network-participation-card .button-secondary {
+.network-participation-card__action {
   margin-top: auto;
+  padding-top: 0.7rem;
+}
+
+.network-participation-card .button-secondary {
+  margin-top: 0;
 }
 
 .network-form-note {
-  margin: auto 0 0;
-  padding-top: 1rem;
+  margin: 0;
   color: var(--muted);
   font-family: var(--sans);
   font-size: 0.88rem;
