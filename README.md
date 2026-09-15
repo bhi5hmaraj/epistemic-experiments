@@ -79,7 +79,7 @@ Content is stored as Markdown with YAML frontmatter and validated by
 | Resources | `src/content/resources/` | `status: published`. |
 | Editable pages | `src/content/pages/` | Rendered directly on their route. |
 
-Public routes are `/`, `/events`, `/logs`, `/resources`, `/projects`, `/about`, and `/join`.
+Public routes are `/`, `/events`, `/logs`, `/resources`, `/projects`, `/saneai`, `/about`, and `/join`.
 
 ## Editing With Pages CMS
 
