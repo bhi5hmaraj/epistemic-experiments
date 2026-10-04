@@ -1,0 +1,12 @@
+numpy==2.5.3
+scipy==1.18.1
+opencv-python-headless==5.0.0.93
+pillow==12.3.0
+pillow-heif==1.8.0
+soundfile==0.14.0
+soxr==1.1.0
+librosa==1.0.0
+pedalboard==0.9.25
+pyloudnorm==0.2.0
+pychord==1.4.0
+pretty_midi==0.2.11.post0
