@@ -1,7 +1,11 @@
-# Ooty Alignment Retreat 3.0: the promo film
+# epistemic-movie-gen
 
-The 2:29 promo film for Ooty Alignment Retreat 3.0, made entirely in code. Python draws every frame from the
-retreat photos and composes the score from free orchestral samples. ffmpeg turns both into the video.
+Short films for Epistemic Experiments, made entirely in code. Python draws every frame from a set of
+photos and composes the score from free orchestral samples. ffmpeg turns both into the video.
+
+The first film is the 2:29 promo for Ooty Alignment Retreat 3.0. The scenes, text and photo choices
+in `film.py` and `prep.py` belong to that film. The renderer, the music engine and the scores work
+for any film.
 
 | | |
 |---|---|
