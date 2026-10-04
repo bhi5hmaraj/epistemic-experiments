@@ -1,0 +1,17 @@
+# fetched by fetch_assets.py
+samples/
+fonts/
+models/
+# private: the retreat photos and clips (see README)
+photos/
+# built by prep.py, score.py, film.py, variants.py
+cache/
+clips/
+out/
+bench/
+*.wav
+*.mid
+*.mp4
+*.mov
+.venv/
+__pycache__/
