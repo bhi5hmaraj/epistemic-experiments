@@ -1,0 +1,50 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
+import { hasEventPage, registrationLink } from "../../lib/content";
+
+export async function getStaticPaths() {
+  const events = (await getCollection("events")).filter(hasEventPage);
+
+  return events.map((event) => ({
+    params: { slug: event.data.slug },
+    props: { event },
+  }));
+}
+
+interface Props {
+  event: CollectionEntry<"events">;
+}
+
+const { event } = Astro.props;
+const { Content } = await render(event);
+const link = registrationLink(event);
+---
+
+<ArticleLayout
+  title={event.data.title}
+  subtitle={event.data.subtitle}
+  date={event.data.date}
+  dateLabel={event.data.date_label}
+  eyebrow="Event"
+  topics={event.data.topics}
+  coverImage={event.data.cover_image}
+  privacyLevel={event.data.privacy_level}
+  comments={event.data.comments}
+>
+  {
+    link && (
+      <p class="card__action">
+        <a class="button-primary" href={link.url} target="_blank" rel="noopener">{link.label}</a>
+      </p>
+    )
+  }
+  <Content />
+  {
+    link && (
+      <p class="card__action">
+        <a class="button-primary" href={link.url} target="_blank" rel="noopener">{link.label}</a>
+      </p>
+    )
+  }
+</ArticleLayout>

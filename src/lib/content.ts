@@ -1,11 +1,30 @@
 import type { CollectionEntry } from "astro:content";
 
+export interface RegistrationLink {
+  url: string;
+  label: string;
+}
+
+/** Where visitors sign up: Luma when the event has it, otherwise the editor's own form link. */
+export function registrationLink(event: CollectionEntry<"events">): RegistrationLink | undefined {
+  if (event.data.luma_url) return { url: event.data.luma_url, label: "RSVP on Luma" };
+  if (event.data.registration_url) {
+    return { url: event.data.registration_url, label: event.data.registration_label };
+  }
+  return undefined;
+}
+
 export function isPublicEvent(event: CollectionEntry<"events">): boolean {
   return (
     event.data.status === "live" &&
     event.data.publish_on_site === true &&
-    Boolean(event.data.luma_url)
+    Boolean(registrationLink(event))
   );
+}
+
+/** A public event with body text gets a page of its own at /events/<slug>/. */
+export function hasEventPage(event: CollectionEntry<"events">): boolean {
+  return isPublicEvent(event) && Boolean(event.body?.trim());
 }
 
 function eventHasEnded(event: CollectionEntry<"events">, now: Date): boolean {
@@ -33,7 +52,7 @@ export function isPastEvent(
 ): boolean {
   const isPublicArchiveEvent =
     event.data.publish_on_site === true &&
-    Boolean(event.data.luma_url) &&
+    Boolean(registrationLink(event)) &&
     (event.data.status === "live" || event.data.status === "completed");
 
   return isPublicArchiveEvent && (event.data.status === "completed" || eventHasEnded(event, now));

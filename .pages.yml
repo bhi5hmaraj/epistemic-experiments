@@ -96,7 +96,20 @@ content:
       - name: luma_url
         label: Luma registration URL
         type: string
-        description: "A live event will not appear publicly without this URL."
+        description: "A live event needs this or a registration URL below to appear publicly."
+      - name: registration_url
+        label: Other registration URL
+        type: string
+        description: "For events without Luma, for example a Google Form. Luma wins when both are set."
+      - name: registration_label
+        label: Registration button text
+        type: string
+        default: Register
+        description: "Shown on the button for the registration URL, for example Fill the interest form."
+      - name: date_label
+        label: Date shown on the site
+        type: string
+        description: "Replaces the exact date when dates are not fixed yet, for example November 2026."
       - name: publish_on_site
         label: Publish on site
         type: boolean
@@ -119,7 +132,7 @@ content:
         options:
           values: [recorded, not_recorded, unknown]
       - name: body
-        label: Internal notes or public detail
+        label: Event page (public once the event is live)
         type: rich-text
 
   - name: logs

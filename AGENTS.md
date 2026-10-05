@@ -144,12 +144,16 @@ Events are listed publicly only when all conditions are true:
 ```ts
 event.data.status === "live" &&
 event.data.publish_on_site === true &&
-Boolean(event.data.luma_url)
+Boolean(registrationLink(event)) // a Luma URL, or a registration_url such as a Google Form
 ```
+
+- A public event with body text gets its own page at `/events/<slug>/`, which renders the body.
+- `date_label` replaces the exact date on cards and the event page while dates are not fixed.
 
 - Event lifecycle: `draft -> review -> ready_for_luma -> live -> completed -> archived`.
 - Luma is manual in v1. Create the Luma event outside the site, then paste the
-  public registration URL into the event entry.
+  public registration URL into the event entry. Events without Luma, such as a
+  retreat's expression-of-interest form, use `registration_url` and `registration_label`.
 - Event and participation links are currently WIP. Do not invent public contact
   channels or test Luma links to make empty states look complete.
 
