@@ -52,7 +52,9 @@ also need Python 3 (tested on 3.14), ffmpeg, and about 2 GB of free disk.
    .venv/bin/pip install -r requirements.txt
    ```
 3. Download the samples, fonts and face model (about 1.5 GB): `.venv/bin/python fetch_assets.py`.
-4. Put the retreat photos in `photos/`. Ask an organiser for the archives, then unzip:
+4. Put the retreat photos in `photos/`. They are in a
+   [Google Drive folder](https://drive.google.com/drive/folders/1rB1tUIMRDvoMYagab4vQH4kpObBnD7oI?usp=drive_link).
+   Ask an organiser for access. Then unzip:
    ```
    photos/retreat1/   Photos-ooty-1.zip   (Retreat 1.0, June 2024)
    photos/retreat2/   Photos-ooty-2.zip   (Retreat 2.0, June 2025, with the three .MP4 clips)
