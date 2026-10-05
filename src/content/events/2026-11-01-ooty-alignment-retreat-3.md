@@ -2,7 +2,6 @@
 title: "Ooty Alignment Retreat 3.0"
 slug: "ooty-alignment-retreat-3"
 status: "live"
-subtitle: "Rationality meets Wisdom"
 summary: "A new iteration of the retreat in the Nilgiris this November: a cognitive gym, a full day of trekking, and big questions about the future of AI and how we can be prepared. Fill the expression of interest form by 10 October."
 date: "2026-11-01"
 date_label: "November 2026"
