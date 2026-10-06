@@ -13,6 +13,7 @@ const { start_at: startAt, end_at: endAt, timezone } = event.data;
 const hasExactSchedule = Boolean(startAt && endAt);
 
 const link = registrationLink(event);
+const eventPage = hasEventPage(event) ? withBase(`/events/${event.data.slug}/`) : undefined;
 
 const eventDate = event.data.date_label ?? (hasExactSchedule
   ? new Intl.DateTimeFormat("en-IN", {
@@ -120,7 +121,15 @@ const eventContext = [
     </div>
 
     <header class="event-card__header">
-      <h2>{event.data.title}</h2>
+      <h2>
+        {
+          eventPage ? (
+            <a class="event-card__link" href={eventPage}>{event.data.title}</a>
+          ) : (
+            event.data.title
+          )
+        }
+      </h2>
       {event.data.subtitle && <p class="event-card__subtitle">{event.data.subtitle}</p>}
     </header>
 
@@ -131,13 +140,6 @@ const eventContext = [
         link && (
           <a class="button-primary" href={link.url} target="_blank" rel="noopener">
             {link.label}
-          </a>
-        )
-      }
-      {
-        hasEventPage(event) && (
-          <a class="button-secondary" href={withBase(`/events/${event.data.slug}/`)}>
-            Read more
           </a>
         )
       }
