@@ -301,6 +301,17 @@ button.button-secondary:disabled {
   color: var(--ink);
 }
 
+.event-cta {
+  margin: 2.4rem 0;
+  text-align: center;
+}
+
+.event-cta .button-primary {
+  min-height: 58px;
+  padding: 0.95rem 2.2rem;
+  font-size: 1.12rem;
+}
+
 .section {
   margin-top: 4.7rem;
 }
