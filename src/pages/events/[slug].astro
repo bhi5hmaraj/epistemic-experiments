@@ -41,11 +41,4 @@ const link = registrationLink(event);
     )
   }
   <Content />
-  {
-    link && (
-      <p class="event-cta">
-        <a class="button-primary" href={link.url} target="_blank" rel="noopener">{link.label}</a>
-      </p>
-    )
-  }
 </ArticleLayout>

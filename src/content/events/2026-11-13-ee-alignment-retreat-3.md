@@ -227,7 +227,10 @@ to grow. [Vatsal](https://vatsalmehra.com/) runs
 impact of AI.
 
 Aditya and Bhishma have followed AI safety since 2022. For the past three years they have run
-awareness events at IIIT Hyderabad, IIT Madras and EAGx. We keep asking whether there are more
+awareness events at
+[IIIT Hyderabad](https://docs.google.com/presentation/d/1DIoOq8sYGDpu_oW16N7BcGTjfPyn6rOPXlOD6t-VvrU/edit?usp=sharing),
+IIT Madras and
+[EAGx](https://www.youtube.com/watch?v=rglc4gOcAJc&list=PLL3piKwLOMhpiFuOxO9Qqnoj0SU0gIJQy&index=2). We keep asking whether there are more
 people like us. This retreat is our attempt to find you.
 
 ### Must I run a session?
