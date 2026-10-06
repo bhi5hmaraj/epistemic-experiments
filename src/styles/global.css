@@ -716,11 +716,42 @@ button.button-secondary:disabled {
 }
 
 .event-card {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(240px, 0.72fr) minmax(0, 1.28fr);
   gap: 0;
   padding: 0.72rem;
   overflow: hidden;
+}
+
+.event-card__link {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.event-card__link:hover {
+  color: var(--link);
+}
+
+.event-card__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 17px;
+}
+
+.event-card__link:focus-visible {
+  outline: none;
+}
+
+.event-card__link:focus-visible::after {
+  outline: 3px solid var(--blue);
+  outline-offset: -3px;
+}
+
+.event-card .card__action a {
+  position: relative;
+  z-index: 1;
 }
 
 .event-card__cover {
