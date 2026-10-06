@@ -189,6 +189,8 @@ Privacy is a product requirement, not only a content preference.
 - Exception: the official community Discord invite
   (`https://discord.gg/nKDVuVTrC`) is approved for public display (used in the
   Kodai log and the contact modal). All other invites remain private.
+- Exception: the EE Alignment Retreat 3.0 event page shows its Q&A Meet link, its
+  Slido link and its events sheet. The organisers approved these for public display.
 - If a proposed public summary might identify a participant, leave it out pending review.
 
 ## Development And Deployment
