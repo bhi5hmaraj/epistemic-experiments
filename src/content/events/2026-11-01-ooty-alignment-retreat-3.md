@@ -61,56 +61,55 @@ most certain. Most of all, we hope for rich friendships and the work that grows 
 
 ## Questions
 
-### I don't work in AI. Is this for me?
+### Who can come?
 
-Yes. Bring curiosity and a question you can't put down. You won't need a reading list or the
-right vocabulary.
+You do not need to work in AI. The retreat is for anyone who wants to ask questions about AI
+and how to prepare for it.
 
-### What do we actually do all day?
+### What happens at the retreat?
 
-The people who come run the sessions. Last time that meant debates, a workshop where people
-built small apps, a tabletop crisis game, poker and a movie night. This time we add a full
-day's trek and a cognitive gym of puzzles and things to build by hand.
+The participants run the sessions. At Retreat 2.0 they ran debates, a tabletop exercise, a
+workshop to build small apps and a poker night. Retreat 3.0 adds a cognitive gym and a trek
+that takes a full day. In the cognitive gym you solve puzzles and build things by hand.
 
-### Do I have to run a session?
+### Must I run a session?
 
-Yes, and it can be small and rough. Bring a puzzle you love, or a half-baked idea you want
-people to poke at.
+Yes. Each participant brings one session. A session can be a talk, a game, a puzzle or an open
+question.
 
-### I won't know anyone.
+### How large is the group?
 
-Most people don't on day one. It's a small group, fifteen of us last time, so that lasts about
-one dinner.
+Retreat 2.0 had 15 participants. We plan a small group again, so we cannot give a place to
+everyone who fills the form.
 
-### How fit do I need to be for the trek?
+### How hard is the trek?
 
-Fit enough to walk for a day with breaks. We go at the group's pace.
+The trek takes a full day. We walk at the pace of the group and stop for breaks.
 
-### Can I come for a day or two, or work from there?
+### Can I come for part of the retreat?
 
-Please come for all of it and leave work at home. The retreat depends on everyone being fully
-there.
+No. Each participant stays for all four nights and does no other work during the retreat.
 
-### What does it cost?
+### How much does the retreat cost?
 
-About Rs 16,000 for the four nights. We'll confirm it when we share the dates.
+The cost is about Rs 16,000 for each participant, or Rs 4,000 for each night. We will confirm
+the cost when we set the dates.
 
-### Is filling the form a commitment?
+### Does the form commit me to come?
 
-No. It tells us you're interested and which dates suit you, and it takes 5 to 15 minutes. We
-keep the group small, so we may not have room for everyone.
+No. The form tells us that you are interested and which dates work for you. It takes 5 to 15
+minutes. Fill it by 10 October.
 
-### How do I get to Ooty?
+### How do I reach Ooty?
 
-Reach Coimbatore by flight or train, then it's about three hours up the hill by road. The toy
-train from Mettupalayam is the slow, scenic way, if you can get a ticket.
+Travel to Coimbatore by air or by train. From Coimbatore, the road to Ooty takes about three
+hours. The Nilgiri Mountain Railway runs from Mettupalayam to Ooty.
 
-### What was the last one like?
+### What was Retreat 2.0 like?
 
 Read [Reflections from Ooty Retreat 2.0](https://www.lesswrong.com/posts/KerjdwMehqrHDHEhJ/reflections-from-ooty-retreat-2-0).
-It covers what worked and what went wrong.
+The post describes the sessions and the problems we found.
 
-### Something else?
+### How do I ask another question?
 
-Write to [admin@epistemic-experiments.org](mailto:admin@epistemic-experiments.org) and a human
-will answer.
+Send an email to [admin@epistemic-experiments.org](mailto:admin@epistemic-experiments.org).
