@@ -45,22 +45,6 @@ it connects to other things, and our solution creates new problems.
 This is a bottom-up event in the style of an unconference. If your interest lies outside these
 topics, propose your own session.
 
-## Links
-
-- [Expression of interest form](https://forms.gle/PHR43m5ohMSNzMg9A). It takes 5 to 15 minutes.
-- [Q&A call](https://meet.google.com/jzg-ouoa-var). Come to meet us and ask questions.
-- [Slido](https://app.sli.do/event/nXMXERSYyW1VsZPRmeaz4x). Post your questions for the Q&A call
-  here.
-- [Events sheet](https://docs.google.com/spreadsheets/d/1Uqwo6XBGW86RPEiAlMyIMafEktJNOt5bMxcRD4Br5qo/edit).
-  Add your name, propose a session, or join a session that someone else proposed.
-- [Retreat doc](https://docs.google.com/document/d/14Y-aC33-YyCNmp__GVyCLdMRUkrx59P31WtuS-DQfMA/edit?usp=sharing).
-  More about our motivations and the themes.
-- [Reflections from Ooty Retreat 2.0](https://www.lesswrong.com/posts/KerjdwMehqrHDHEhJ/reflections-from-ooty-retreat-2-0).
-  What the last retreat was like.
-- [Discord](https://discord.gg/nKDVuVTrC). Hear about events like this one.
-- [admin@epistemic-experiments.org](mailto:admin@epistemic-experiments.org). Write to us for more
-  information, or to book a call with the organisers.
-
 ## Dates
 
 - **Q&A call.** Wednesday 7 October, 8 to 9 pm IST.
@@ -266,3 +250,19 @@ minutes, which depends on how much you like to write. Fill it by 10 October.
 2. Write to [admin@epistemic-experiments.org](mailto:admin@epistemic-experiments.org) if you want
    more information.
 3. Fill the expression of interest form by 10 October.
+
+## Links
+
+- [Expression of interest form](https://forms.gle/PHR43m5ohMSNzMg9A). It takes 5 to 15 minutes.
+- [Q&A call](https://meet.google.com/jzg-ouoa-var). Come to meet us and ask questions.
+- [Slido](https://app.sli.do/event/nXMXERSYyW1VsZPRmeaz4x). Post your questions for the Q&A call
+  here.
+- [Events sheet](https://docs.google.com/spreadsheets/d/1Uqwo6XBGW86RPEiAlMyIMafEktJNOt5bMxcRD4Br5qo/edit).
+  Add your name, propose a session, or join a session that someone else proposed.
+- [Retreat doc](https://docs.google.com/document/d/14Y-aC33-YyCNmp__GVyCLdMRUkrx59P31WtuS-DQfMA/edit?usp=sharing).
+  More about our motivations and the themes.
+- [Reflections from Ooty Retreat 2.0](https://www.lesswrong.com/posts/KerjdwMehqrHDHEhJ/reflections-from-ooty-retreat-2-0).
+  What the last retreat was like.
+- [Discord](https://discord.gg/nKDVuVTrC). Hear about events like this one.
+- [admin@epistemic-experiments.org](mailto:admin@epistemic-experiments.org). Write to us for more
+  information, or to book a call with the organisers.
