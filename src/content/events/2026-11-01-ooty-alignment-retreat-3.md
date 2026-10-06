@@ -63,32 +63,32 @@ most certain. Most of all, we hope for rich friendships and the work that grows 
 
 ### Who can come?
 
-You do not need to work in AI. The retreat is for anyone who wants to ask questions about AI
-and how to prepare for it.
+Bring a question about AI that you cannot answer alone. A job in AI is optional.
 
 ### What happens at the retreat?
 
 The participants run the sessions. At Retreat 2.0 they ran debates, a tabletop exercise, a
-workshop to build small apps and a poker night. Retreat 3.0 adds a cognitive gym and a trek
-that takes a full day. In the cognitive gym you solve puzzles and build things by hand.
+workshop to build small apps and a poker night. Retreat 3.0 adds a trek that takes a full day
+and a cognitive gym. In the cognitive gym you build things by hand. It has a robot arm and a
+computer that runs on marbles.
 
 ### Must I run a session?
 
 Yes. Each participant brings one session. A session can be a talk, a game, a puzzle or an open
-question.
+question. We accept sessions that are half finished.
 
 ### How large is the group?
 
-Retreat 2.0 had 15 participants. We plan a small group again, so we cannot give a place to
-everyone who fills the form.
+Retreat 2.0 had 15 participants, enough for one circle around a campfire. We plan a small group
+again, so we cannot give a place to everyone who fills the form.
 
 ### How hard is the trek?
 
-The trek takes a full day. We walk at the pace of the group and stop for breaks.
+The trek takes a full day. We walk at the pace of the slowest walker and stop for good views.
 
 ### Can I come for part of the retreat?
 
-No. Each participant stays for all four nights and does no other work during the retreat.
+No. Each participant stays for all four nights, and work stays at home.
 
 ### How much does the retreat cost?
 
@@ -98,17 +98,18 @@ the cost when we set the dates.
 ### Does the form commit me to come?
 
 No. The form tells us that you are interested and which dates work for you. It takes 5 to 15
-minutes. Fill it by 10 October.
+minutes, which depends on how much you like to write. Fill it by 10 October.
 
 ### How do I reach Ooty?
 
 Travel to Coimbatore by air or by train. From Coimbatore, the road to Ooty takes about three
-hours. The Nilgiri Mountain Railway runs from Mettupalayam to Ooty.
+hours. The Nilgiri Mountain Railway runs from Mettupalayam to Ooty. It is slow, and that is the
+reason to take it.
 
 ### What was Retreat 2.0 like?
 
 Read [Reflections from Ooty Retreat 2.0](https://www.lesswrong.com/posts/KerjdwMehqrHDHEhJ/reflections-from-ooty-retreat-2-0).
-The post describes the sessions and the problems we found.
+The post describes the sessions and the things that went wrong.
 
 ### How do I ask another question?
 
