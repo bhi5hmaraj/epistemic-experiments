@@ -4,7 +4,7 @@ slug: "ee-alignment-retreat-3"
 status: "live"
 summary: "Four days this November or December, hosted by the people who come: a cognitive gym, walks in the forest, and big questions about the future of AI and how we can be prepared. Fill the expression of interest form by 10 October."
 date: "2026-11-13"
-date_label: "November or December 2026"
+date_label: "Mid November to early December 2026 (tentative)"
 timezone: "Asia/Kolkata"
 format: "Residential retreat, four days"
 location_type: "in_person"
@@ -25,42 +25,9 @@ privacy_level: "normal"
 recording_policy: "not_recorded"
 ---
 
-EE Alignment Retreat 3.0 is four days of sessions, co-created by the people who attend. The
-expression of interest form takes 5 to 15 minutes. Please fill it by **10 October**.
-
-## Links
-
-- [Expression of interest form](https://forms.gle/PHR43m5ohMSNzMg9A). Fill it by 10 October.
-- [Q&A call](https://meet.google.com/jzg-ouoa-var). Wednesday 7 October, 8 to 9 pm IST. Come to
-  meet us and ask questions.
-- [Slido](https://app.sli.do/event/nXMXERSYyW1VsZPRmeaz4x). Post your questions for the Q&A call
-  here.
-- [Events sheet](https://docs.google.com/spreadsheets/d/1Uqwo6XBGW86RPEiAlMyIMafEktJNOt5bMxcRD4Br5qo/edit).
-  Add your name, propose a session, or join a session that someone else proposed.
-- [Retreat doc](https://docs.google.com/document/d/14Y-aC33-YyCNmp__GVyCLdMRUkrx59P31WtuS-DQfMA/edit?usp=sharing).
-  More about our motivations and the themes.
-- [Reflections from Ooty Retreat 2.0](https://www.lesswrong.com/posts/KerjdwMehqrHDHEhJ/reflections-from-ooty-retreat-2-0).
-  What the last retreat was like.
-- [Discord](https://discord.gg/nKDVuVTrC). Hear about events like this one.
-- [admin@epistemic-experiments.org](mailto:admin@epistemic-experiments.org). Write to us for more
-  information, or to book a call with the organisers.
-
-## When, where and cost
-
-- **When.** One of four windows: 13-16 November, 20-23 November, 27-30 November or 4-7 December
-  2026. We will pick the window from the form responses.
-- **Where.** Ooty, in the Nilgiris.
-- **Cost.** About Rs 16,000 per person, which is around Rs 4,000 a night. We have limited
-  funding for people who cannot afford the cost.
-- **Longer stays.** The four days are compulsory. You can arrive earlier or stay longer at the
-  same daily rate. We will be there three days before the retreat and a week after it.
-
-We plan to run more retreats on other dates and in other places. Fill the form even if these
-dates do not work for you.
-
-<iframe src="https://www.youtube-nocookie.com/embed/5g3pgPogLLY" title="Promo video for EE Alignment Retreat 3.0" loading="lazy" allowfullscreen></iframe>
-
 ## What this retreat is about
+
+EE Alignment Retreat 3.0 is four days of sessions, co-created by the people who attend.
 
 A constitution alone cannot align a government with its citizens. The culture has to do part of
 the work, and every citizen has a role in it.
@@ -77,6 +44,44 @@ it connects to other things, and our solution creates new problems.
 
 This is a bottom-up event in the style of an unconference. If your interest lies outside these
 topics, propose your own session.
+
+## Links
+
+- [Expression of interest form](https://forms.gle/PHR43m5ohMSNzMg9A). It takes 5 to 15 minutes.
+- [Q&A call](https://meet.google.com/jzg-ouoa-var). Come to meet us and ask questions.
+- [Slido](https://app.sli.do/event/nXMXERSYyW1VsZPRmeaz4x). Post your questions for the Q&A call
+  here.
+- [Events sheet](https://docs.google.com/spreadsheets/d/1Uqwo6XBGW86RPEiAlMyIMafEktJNOt5bMxcRD4Br5qo/edit).
+  Add your name, propose a session, or join a session that someone else proposed.
+- [Retreat doc](https://docs.google.com/document/d/14Y-aC33-YyCNmp__GVyCLdMRUkrx59P31WtuS-DQfMA/edit?usp=sharing).
+  More about our motivations and the themes.
+- [Reflections from Ooty Retreat 2.0](https://www.lesswrong.com/posts/KerjdwMehqrHDHEhJ/reflections-from-ooty-retreat-2-0).
+  What the last retreat was like.
+- [Discord](https://discord.gg/nKDVuVTrC). Hear about events like this one.
+- [admin@epistemic-experiments.org](mailto:admin@epistemic-experiments.org). Write to us for more
+  information, or to book a call with the organisers.
+
+## Dates
+
+- **Q&A call.** Wednesday 7 October, 8 to 9 pm IST.
+- **Expression of interest form.** Fill it by 10 October.
+- **Retreat.** Mid November to early December 2026. These dates are tentative, and we are still
+  considering them.
+
+## When, where and cost
+
+- **When.** One of four windows: 13-16 November, 20-23 November, 27-30 November or 4-7 December
+  2026. We will pick the window from the form responses.
+- **Where.** Ooty, in the Nilgiris.
+- **Cost.** About Rs 16,000 per person, which is around Rs 4,000 a night. We have limited
+  funding for people who cannot afford the cost.
+- **Longer stays.** The four days are compulsory. You can arrive earlier or stay longer at the
+  same daily rate. We will be there three days before the retreat and a week after it.
+
+We plan to run more retreats on other dates and in other places. Fill the form even if these
+dates do not work for you.
+
+<iframe src="https://www.youtube-nocookie.com/embed/5g3pgPogLLY" title="Promo video for EE Alignment Retreat 3.0" loading="lazy" allowfullscreen></iframe>
 
 ## How it started
 
@@ -234,8 +239,8 @@ We are a group of friends who like to act on the challenges we face, and we want
 to grow. [Vatsal](https://vatsalmehra.com/) runs
 [rationality workshops](https://rationalityworkshops.com) and [Portal](http://enterportal.org).
 [Aditya](http://adityaarpitha.com) is a well-known AI safety community builder in India.
-[Bhishma](https://www.bhishmaraj.org/about) worked at Google and is a lead developer at
-littlebird.ai.
+[Bhishma](https://www.bhishmaraj.org/about) is an enthusiast of AI safety and of navigating the
+impact of AI.
 
 Aditya and Bhishma have followed AI safety since 2022. For the past three years they have run
 awareness events at IIIT Hyderabad, IIT Madras and EAGx. We keep asking whether there are more
@@ -248,8 +253,7 @@ question, and we accept sessions that are half finished.
 
 ### Can I come for part of the retreat?
 
-No. The four days are compulsory, and work stays at home for those days. You can arrive earlier
-or stay longer.
+No. You can arrive earlier or stay longer.
 
 ### Does the form commit me to come?
 
@@ -262,5 +266,3 @@ minutes, which depends on how much you like to write. Fill it by 10 October.
 2. Write to [admin@epistemic-experiments.org](mailto:admin@epistemic-experiments.org) if you want
    more information.
 3. Fill the expression of interest form by 10 October.
-
-The links are at the top of this page, and the form button is below.
