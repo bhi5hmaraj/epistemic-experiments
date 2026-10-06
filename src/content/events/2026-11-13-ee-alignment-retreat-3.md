@@ -125,12 +125,6 @@ stops you.
 No. The form tells us that you are interested and which dates work for you. It takes 5 to 15
 minutes, which depends on how much you like to write. Fill it by 10 October.
 
-### How do I reach Ooty?
-
-Travel to Coimbatore by air or by train. From Coimbatore, the road to Ooty takes about three
-hours. The Nilgiri Mountain Railway runs from Mettupalayam to Ooty. It is slow, and that is the
-reason to take it.
-
 ### What was Retreat 2.0 like?
 
 Read [Reflections from Ooty Retreat 2.0](https://www.lesswrong.com/posts/KerjdwMehqrHDHEhJ/reflections-from-ooty-retreat-2-0).
