@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import TagList from "./TagList.astro";
+import { hasEventPage, registrationLink } from "../lib/content";
 import { formatDate, withBase } from "../lib/site";
 
 interface Props {
@@ -11,14 +12,16 @@ const { event } = Astro.props;
 const { start_at: startAt, end_at: endAt, timezone } = event.data;
 const hasExactSchedule = Boolean(startAt && endAt);
 
-const eventDate = hasExactSchedule
+const link = registrationLink(event);
+
+const eventDate = event.data.date_label ?? (hasExactSchedule
   ? new Intl.DateTimeFormat("en-IN", {
       weekday: "long",
       day: "numeric",
       month: "long",
       timeZone: timezone,
     }).format(new Date(startAt!))
-  : formatDate(event.data.date);
+  : formatDate(event.data.date));
 
 const formatClock = (date: Date) =>
   new Intl.DateTimeFormat("en-IN", {
@@ -78,7 +81,7 @@ const eventContext = [
     <div class="event-card__schedule">
       <p class="event-card__when">
         {
-          hasExactSchedule ? (
+          hasExactSchedule && !event.data.date_label ? (
             <>
               <time datetime={startAt}>{eventDate}</time>
               <span class="event-card__time-separator"> — </span>
@@ -124,9 +127,20 @@ const eventContext = [
     <p class="event-card__summary">{event.data.summary}</p>
     <TagList topics={event.data.topics} />
     <div class="card__action">
-      <a class="button-primary" href={event.data.luma_url} target="_blank" rel="noopener">
-        RSVP on Luma
-      </a>
+      {
+        link && (
+          <a class="button-primary" href={link.url} target="_blank" rel="noopener">
+            {link.label}
+          </a>
+        )
+      }
+      {
+        hasEventPage(event) && (
+          <a class="button-secondary" href={withBase(`/events/${event.data.slug}/`)}>
+            Read more
+          </a>
+        )
+      }
     </div>
   </div>
 </article>

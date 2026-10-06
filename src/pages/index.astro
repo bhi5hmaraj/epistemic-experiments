@@ -4,11 +4,11 @@ import HomeHero from "../components/HomeHero.astro";
 import EventCard from "../components/EventCard.astro";
 import LogCard from "../components/LogCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { isPublicEvent, isPublishedLog, newestFirst } from "../lib/content";
+import { isPublishedLog, isUpcomingEvent, newestFirst } from "../lib/content";
 import { withBase } from "../lib/site";
 
 const events = (await getCollection("events"))
-  .filter(isPublicEvent)
+  .filter((event) => isUpcomingEvent(event))
   .sort(newestFirst)
   .slice(0, 3);
 const logs = (await getCollection("logs"))
@@ -44,7 +44,7 @@ const explorations = [
           <div class="empty-state">
             <p>
               The next public session is taking shape. Events appear here once
-              registration is live through Luma.
+              registration is live.
             </p>
             <a href={withBase("/join/")}>Hear about the next experiment</a>
           </div>

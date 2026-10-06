@@ -47,7 +47,8 @@ SaaS landing page or a developer terminal blog.
 - Body copy is `1.125rem` with generous leading; avoid reverting to pixel-sized
   body typography.
 - Keep long-form content narrow. Article prose is intentionally constrained to
-  roughly `680px`; do not stretch articles across wide screens.
+  roughly `680px`. Do not stretch articles across wide screens. Event pages are
+  the exception: they pass `wide` to `ArticleLayout` for an `860px` column.
 - Use `text-wrap: balance` for display/section headings and `text-wrap: pretty`
   for readable prose where supported.
 
@@ -93,7 +94,8 @@ Use the established light-first warm-paper palette in
 | `/images/experiment-vessel.webp` | Join page |
 | `/images/about-inquiry-landscape.webp` | Events page |
 | `/images/hero-map-territory.webp` | Starter experiment log cover |
-| `/images/og-default.jpg` | Default social share card (1200×630) |
+| `/images/ee-retreat-collage.webp` | EE Alignment Retreat 3.0 cover (photo collage from past retreats) |
+| `/images/og-default.jpg` | Default social share card (1200x630) |
 | `/favicon.svg`, `/favicon.ico`, `/icon-*.png`, `/apple-touch-icon.png` | Site icons (dotted route + observation point mark) |
 
 The canonical production URL is `https://www.epistemic-experiments.org`
@@ -144,12 +146,16 @@ Events are listed publicly only when all conditions are true:
 ```ts
 event.data.status === "live" &&
 event.data.publish_on_site === true &&
-Boolean(event.data.luma_url)
+Boolean(registrationLink(event)) // a Luma URL, or a registration_url such as a Google Form
 ```
+
+- A public event with body text gets its own page at `/events/<slug>/`, which renders the body.
+- `date_label` replaces the exact date on cards and the event page while dates are not fixed.
 
 - Event lifecycle: `draft -> review -> ready_for_luma -> live -> completed -> archived`.
 - Luma is manual in v1. Create the Luma event outside the site, then paste the
-  public registration URL into the event entry.
+  public registration URL into the event entry. Events without Luma, such as a
+  retreat's expression-of-interest form, use `registration_url` and `registration_label`.
 - Event and participation links are currently WIP. Do not invent public contact
   channels or test Luma links to make empty states look complete.
 
@@ -183,6 +189,8 @@ Privacy is a product requirement, not only a content preference.
 - Exception: the official community Discord invite
   (`https://discord.gg/nKDVuVTrC`) is approved for public display (used in the
   Kodai log and the contact modal). All other invites remain private.
+- Exception: the EE Alignment Retreat 3.0 event page shows its Q&A Meet link, its
+  Slido link and its events sheet. The organisers approved these for public display.
 - If a proposed public summary might identify a participant, leave it out pending review.
 
 ## Development And Deployment
