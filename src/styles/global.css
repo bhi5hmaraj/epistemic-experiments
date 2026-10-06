@@ -526,6 +526,10 @@ button.button-secondary:disabled {
   padding: 3.4rem 1.25rem 5rem;
 }
 
+.article--wide {
+  max-width: 860px;
+}
+
 .article h1 {
   margin: 0.4rem 0 1rem;
   font-size: clamp(2.35rem, 8vw, 3.8rem);

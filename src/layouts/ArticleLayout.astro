@@ -15,6 +15,7 @@ interface Props {
   author?: string;
   eyebrow?: string;
   dateLabel?: string;
+  wide?: boolean;
 }
 
 const {
@@ -28,6 +29,7 @@ const {
   author,
   eyebrow = "Experiment Log",
   dateLabel,
+  wide = false,
 } = Astro.props;
 
 const showComments = comments && privacyLevel !== "sensitive";
@@ -41,7 +43,7 @@ const showComments = comments && privacyLevel !== "sensitive";
   image={coverImage}
   author={author}
 >
-  <article class="article">
+  <article class:list={["article", { "article--wide": wide }]}>
     <p class="eyebrow">{eyebrow}</p>
     <h1>{title}</h1>
     {subtitle && <p class="subtitle">{subtitle}</p>}
