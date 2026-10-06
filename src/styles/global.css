@@ -544,6 +544,15 @@ button.button-secondary:disabled {
   background: var(--surface);
 }
 
+.article-content iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 2rem 0;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+}
+
 .article-content h2,
 .prose h2 {
   margin: 2.8rem 0 0.7rem;
