@@ -12,7 +12,7 @@ const ROUTES = [
   "/events/",
   "/logs/",
   "/logs/reflections-from-kodai/",
-  "/logs/how-we-write-experiment-logs/",
+  "/logs/reflections-from-ooty-retreat-2/",
   "/resources/",
   "/about/",
   "/join/",

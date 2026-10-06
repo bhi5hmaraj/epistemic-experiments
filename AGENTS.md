@@ -93,7 +93,6 @@ Use the established light-first warm-paper palette in
 | `/images/inquiry-garden.webp` | About page |
 | `/images/experiment-vessel.webp` | Join page |
 | `/images/about-inquiry-landscape.webp` | Events page |
-| `/images/hero-map-territory.webp` | Starter experiment log cover |
 | `/images/ee-retreat-collage.webp` | EE Alignment Retreat 3.0 cover (photo collage from past retreats) |
 | `/images/ooty-2-hills.webp` | Ooty Retreat 2.0 reflections log cover |
 | `/images/og-default.jpg` | Default social share card (1200x630) |
