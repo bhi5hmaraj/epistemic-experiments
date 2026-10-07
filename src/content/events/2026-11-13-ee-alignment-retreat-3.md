@@ -234,6 +234,18 @@ awareness events at
 [EAGx](https://www.youtube.com/watch?v=rglc4gOcAJc&list=PLL3piKwLOMhpiFuOxO9Qqnoj0SU0gIJQy&index=2). We keep asking whether there are more
 people like us. This retreat is our attempt to find you.
 
+### Who funds this? Is it part of EA?
+
+We run the retreat by crowdsourcing. We do not plan to charge anything beyond logistics and
+operations.
+
+We believe financial incentives can cloud judgement and epistemics. We want to keep our
+autonomy, even if that means a smaller scale and less impact. That is why we keep the retreat
+crowdsourced.
+
+We acknowledge our affiliations with the EA and rationality communities, and their intellectual
+influence on us. We run this event independently of them.
+
 ### Must I run a session?
 
 Yes. Everyone comes with something to give. A session can be a talk, a game, a puzzle or an open
