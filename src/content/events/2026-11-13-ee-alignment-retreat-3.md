@@ -57,8 +57,9 @@ topics, propose your own session.
 - **When.** One of four windows: 13-16 November, 20-23 November, 27-30 November or 4-7 December
   2026. We will pick the window from the form responses.
 - **Where.** Ooty, in the Nilgiris.
-- **Cost.** About Rs 16,000 per person, which is around Rs 4,000 a night. We have limited
-  funding for people who cannot afford the cost.
+- **Cost.** About Rs 16,000 per person, which is around Rs 4,000 a night. It covers the venue,
+  the food and operations. This is the upper limit. We will be fully transparent about the
+  actual costs as we progress. We have limited funding for people who cannot afford the cost.
 - **Longer stays.** The four days are compulsory. You can arrive earlier or stay longer at the
   same daily rate. We will be there three days before the retreat and a week after it.
 
@@ -232,6 +233,18 @@ awareness events at
 [IIT Madras](https://www.youtube.com/watch?v=QWX-Rk066cA) and
 [EAGx](https://www.youtube.com/watch?v=rglc4gOcAJc&list=PLL3piKwLOMhpiFuOxO9Qqnoj0SU0gIJQy&index=2). We keep asking whether there are more
 people like us. This retreat is our attempt to find you.
+
+### Who funds this? Is it part of EA?
+
+We run the retreat by crowdsourcing. We do not plan to charge anything beyond logistics and
+operations.
+
+We believe financial incentives can cloud judgement and epistemics. We want to keep our
+autonomy, even if that means a smaller scale and less impact. That is why we keep the retreat
+crowdsourced.
+
+We acknowledge our affiliations with the EA and rationality communities, and their intellectual
+influence on us. We run this event independently of them.
 
 ### Must I run a session?
 
