@@ -138,6 +138,19 @@ something well, build something that helps the rest of us understand it. Think o
   fiction about the next 30 years. Writing and thinking are the same.
 - **Hands-on puzzles.** No AI, no phones. A robot arm, Turing Tumble, Spintronics, maths
   puzzles, and a game coded by hand on paper.
+- **U/acc: understanding acceleration.** Speed up how fast we understand, so that it keeps pace
+  with how fast we build.
+- **Negative space: an unslop contest.** In art, negative space is the empty area around a
+  subject, and it defines the subject as much as the paint does. When creation is abundant,
+  adding costs nothing, so we have to train ourselves to remove. To cut a piece down and keep
+  its form and function takes deep expertise and understanding.
+- **Jedi: the journey is the destination.** Terence Tao compares AI to
+  [a helicopter that drops you at the site](https://teorth.github.io/tao-web/ai-views.html): you
+  arrive, and you miss what the hike teaches. We slow down on purpose to learn and understand.
+- **V/acc: scaling verification.** When execution is abundant,
+  [the capacity to verify is the limit](https://arxiv.org/abs/2602.20946). We practise finding
+  kernels, critical paths and information choke points fast, adapting to new situations, and
+  building tools for the job.
 
 ### Sensemaking and forecasting
 
