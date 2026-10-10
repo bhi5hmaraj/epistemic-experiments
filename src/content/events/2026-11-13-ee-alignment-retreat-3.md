@@ -2,7 +2,7 @@
 title: "EE Alignment Retreat 3.0"
 slug: "ee-alignment-retreat-3"
 status: "live"
-summary: "Four days this November or December, hosted by the people who come: a cognitive gym, walks in the forest, and big questions about the future of AI and how we can be prepared. Fill the expression of interest form by 10 October."
+summary: "Four days this November or December, hosted by the people who come: a cognitive gym, walks in the forest, and big questions about the future of AI and how we can be prepared. Fill the expression of interest form by 12 October (updated)."
 date: "2026-11-13"
 date_label: "Mid November to early December 2026 (tentative)"
 timezone: "Asia/Kolkata"
@@ -48,7 +48,7 @@ topics, propose your own session.
 ## Dates
 
 - **Q&A call.** Wednesday 7 October, 8 to 9 pm IST.
-- **Expression of interest form.** Fill it by 10 October.
+- **Expression of interest form.** Fill it by 12 October (updated from 10 October).
 - **Retreat.** Mid November to early December 2026. These dates are tentative, and we are still
   considering them.
 
@@ -271,14 +271,14 @@ No. You can arrive earlier or stay longer.
 ### Does the form commit me to come?
 
 No. The form tells us that you are interested and which dates work for you. It takes 5 to 15
-minutes, which depends on how much you like to write. Fill it by 10 October.
+minutes, which depends on how much you like to write. Fill it by 12 October.
 
 ### What should I do next?
 
 1. Come to the Q&A call on Wednesday 7 October, 8 to 9 pm IST.
 2. Write to [admin@epistemic-experiments.org](mailto:admin@epistemic-experiments.org) if you want
    more information.
-3. Fill the expression of interest form by 10 October.
+3. Fill the expression of interest form by 12 October.
 
 ## Links
 
